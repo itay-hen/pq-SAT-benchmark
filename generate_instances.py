@@ -3,16 +3,19 @@
 generate_instances.py — Batch generator of factorization-based planted-solution
 SAT and Ising benchmark instances.
 
-Given a digit count d and an instance count k, generates k instances,
-each encoding N = p * q for two randomly chosen d-digit primes p and q.
+Given a size d and an instance count k, generates k instances, each
+encoding N = p * q for two randomly chosen primes p and q of size d.
+By default d is the bit length of each prime, matching the parameter d of
+the paper; with --digits it is the number of decimal digits instead.
 By default, both DIMACS CNF and Ising TSV files are produced.
 
 Output files:  factor_<serial>_p<p>_q<q>.cnf
-               factor_<serial>_p<p>_q<q>_ising_E<E0>.tsv
+               factor_<serial>_p<p>_q<q>_ising_E<E0>.tsv   (fields/couplings; ground energy -E0)
                factor_<serial>_p<p>_q<q>_planted.txt
 
 Usage:
-  python generate_instances.py 3 10                  # 10 instances with 3-digit primes
+  python generate_instances.py 12 10                 # 10 instances with 12-bit primes
+  python generate_instances.py 3 10 --digits         # 10 instances with 3-digit primes
   python generate_instances.py 5 20 -o ./instances   # output to directory
   python generate_instances.py 4 5 --no-ising        # CNF only, skip Ising files
   python generate_instances.py 3 10 --seed 42        # reproducible generation
@@ -79,6 +82,19 @@ def is_prime(n):
     return True
 
 
+def random_d_bit_prime(d, rng):
+    """Return a random prime with exactly d bits (uniform by rejection)."""
+    if d < 2:
+        raise ValueError("a prime has at least 2 bits")
+    lo, hi = 2 ** (d - 1), 2 ** d - 1
+    while True:
+        n = rng.randint(lo, hi)
+        if d > 2:
+            n |= 1  # odd; stays within [lo, hi]
+        if is_prime(n):
+            return n
+
+
 def random_d_digit_prime(d, rng):
     """Return a random d-digit prime (uniformly sampled by rejection)."""
     if d < 1:
@@ -103,13 +119,14 @@ def random_d_digit_prime(d, rng):
 # ---------------------------------------------------------------------------
 
 def generate_batch(d, k, output_dir=".", seed=None, also_ising=True,
-                   distinct_n=False, verify=True):
-    """Generate k factorization SAT instances with d-digit primes.
+                   distinct_n=False, verify=True, unit="bits"):
+    """Generate k factorization SAT instances with primes of size d.
 
     Parameters
     ----------
     d : int
-        Number of decimal digits for each prime factor.
+        Size of each prime factor: bit length (unit="bits", default, the d
+        of the paper) or number of decimal digits (unit="digits").
     k : int
         Number of instances to generate.
     output_dir : str
@@ -128,6 +145,10 @@ def generate_batch(d, k, output_dir=".", seed=None, also_ising=True,
     list of dict
         Metadata for each generated instance.
     """
+    if unit not in ("bits", "digits"):
+        raise ValueError("unit must be 'bits' or 'digits'")
+    sample = random_d_bit_prime if unit == "bits" else random_d_digit_prime
+
     # Import the core module
     try:
         import factorization_sat as fsat
@@ -143,11 +164,11 @@ def generate_batch(d, k, output_dir=".", seed=None, also_ising=True,
     results = []
 
     for idx in range(k):
-        # Generate two d-digit primes
+        # Generate two primes of size d
         attempts = 0
         while True:
-            p = random_d_digit_prime(d, rng)
-            q = random_d_digit_prime(d, rng)
+            p = sample(d, rng)
+            q = sample(d, rng)
             # Canonically order so p <= q (avoids trivial duplicates)
             if p > q:
                 p, q = q, p
@@ -247,13 +268,15 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  %(prog)s 3 10                        # 10 instances, 3-digit primes (CNF + Ising)
+  %(prog)s 12 10                       # 10 instances, 12-bit primes (CNF + Ising)
+  %(prog)s 3 10 --digits               # 10 instances, 3-digit primes
   %(prog)s 5 20 -o ./benchmarks        # write to ./benchmarks/
   %(prog)s 4 5 --seed 42               # reproducible
   %(prog)s 3 10 --no-ising             # CNF only, skip Ising + planted files
   %(prog)s 6 1 --distinct-N            # all products N are distinct
         """)
-    parser.add_argument("d", type=int, help="number of decimal digits per prime")
+    parser.add_argument("d", type=int,
+                        help="bit length of each prime (decimal digits with --digits)")
     parser.add_argument("k", type=int, help="number of instances to generate")
     parser.add_argument("-o", "--output-dir", default=".",
                         help="output directory (default: current directory)")
@@ -265,11 +288,13 @@ Examples:
                         help="ensure all instances have distinct products N")
     parser.add_argument("--no-verify", action="store_true",
                         help="skip planted-solution verification")
+    parser.add_argument("--digits", action="store_true",
+                        help="interpret d as a number of decimal digits instead of bits")
     parser.add_argument("--summary", action="store_true",
                         help="print summary table after generation")
     args = parser.parse_args()
 
-    if args.d < 1:
+    if args.d < (1 if args.digits else 2):
         print("Error: d must be >= 1", file=sys.stderr)
         sys.exit(1)
     if args.k < 1:
@@ -284,6 +309,7 @@ Examples:
         also_ising=not args.no_ising,
         distinct_n=args.distinct_N,
         verify=not args.no_verify,
+        unit="digits" if args.digits else "bits",
     )
 
     if args.summary and results:

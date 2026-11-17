@@ -48,6 +48,11 @@ class VariableManager:
         self._next_id = 1
         # Pinned values: canonical_var -> bool
         self.pinned = {}
+        # Optional callbacks used by the preprocessing worklist
+        self.on_merge = None   # on_merge(surviving_root, absorbed_root)
+        self.on_pin = None     # on_pin(root)
+        # Column of the multiplication table each auxiliary variable lives in
+        self.column = {}
 
     def new_var(self):
         v = self._next_id
@@ -85,11 +90,19 @@ class VariableManager:
         ca = self.find(lit_a)
         cb = self.find(lit_b)
         if ca == cb:
-            return True  # already known
+            return False  # already known: no new information
         if ca == -cb:
-            return False  # contradiction
+            raise ValueError(f"Contradiction: literal {lit_a} asserted equal to its own negation")
         va, fa = abs(ca), (ca < 0)
         vb, fb = abs(cb), (cb < 0)
+        # If either class carries a pinned value, the merged class must keep it
+        # (and the two values must agree).  Value of the literal ca is
+        # pinned[va] ^ fa; same for cb.
+        pa = self.pinned.get(va)
+        pb = self.pinned.get(vb)
+        if pa is not None and pb is not None:
+            if (pa ^ fa) != (pb ^ fb):
+                raise ValueError(f"Contradiction: merging literals {lit_a}, {lit_b} with different pinned values")
         # Union by rank
         ra, rb = self._rank.get(va, 0), self._rank.get(vb, 0)
         need_flip = (fa != fb)  # if both same sign -> same; if different -> flip
@@ -99,6 +112,15 @@ class VariableManager:
         self._parent[vb] = (va, need_flip)
         if ra == rb:
             self._rank[va] = ra + 1
+        # Transfer a pin held by the absorbed root onto the surviving root.
+        if vb in self.pinned:
+            val_b = self.pinned.pop(vb)
+            val_a = val_b ^ need_flip
+            if va in self.pinned and self.pinned[va] != val_a:
+                raise ValueError("Contradiction while merging pinned classes")
+            self.pinned[va] = val_a
+        if self.on_merge is not None:
+            self.on_merge(va, vb)
         return True
 
     def merge_anti(self, lit_a, lit_b):
@@ -116,6 +138,8 @@ class VariableManager:
                 raise ValueError(f"Contradiction: var {var} pinned to both True and False")
             return False  # no new info
         self.pinned[var] = val
+        if self.on_pin is not None:
+            self.on_pin(var)
         return True  # new pin
 
     def value_of(self, lit):
@@ -189,6 +213,7 @@ def generate_clauses(p, q):
     for i in range(n_p):
         for j in range(n_q):
             a_ij = vm.new_var()
+            vm.column[a_ij] = i + j
             and_clauses.append((a_ij, p_vars[i], q_vars[j]))
             planted[a_ij] = bool(bits_p[i] and bits_q[j])
             columns[i + j].append(a_ij)
@@ -212,11 +237,13 @@ def generate_clauses(p, q):
         y = col.popleft()
         # sum = x XOR y (stays in column k)
         s = vm.new_var()
+        vm.column[s] = k
         xor_clauses.append((s, x, y))
         planted[s] = bool(planted.get(abs(x), False) ^ planted.get(abs(y), False))
         col.append(s)
         # carry = x AND y (goes to column k+1)
         c = vm.new_var()
+        vm.column[c] = k + 1
         and_clauses.append((c, x, y))
         planted[c] = bool(planted.get(abs(x), False) and planted.get(abs(y), False))
         columns[k + 1].append(c)
@@ -269,173 +296,166 @@ def preprocess(vm, and_clauses, xor_clauses, pins, planted, max_iters=1000):
     return and_clauses, xor_clauses
 
 
+def _simplify_and(vm, out, a, b):
+    """Apply the AND rules to out = a AND b (canonical literals).
+
+    Returns (keep, progress): keep=False when the clause is fully resolved
+    and can be dropped; progress=True when a pin or merge was added.
+    """
+    vo, va, vb = vm.value_of(out), vm.value_of(a), vm.value_of(b)
+    progress = False
+
+    # Output known
+    if vo is not None:
+        if vo:  # out = 1  =>  a = b = 1
+            progress |= vm.pin(a, True)
+            progress |= vm.pin(b, True)
+            return False, progress
+        # out = 0: at least one input is 0
+        if va is True:
+            return False, vm.pin(b, False)
+        if vb is True:
+            return False, vm.pin(a, False)
+        if va is False or vb is False:
+            return False, False
+        if a == -b:      # a AND NOT a = 0, already satisfied
+            return False, False
+        if a == b:       # a AND a = a = 0  =>  a = 0
+            return False, vm.pin(a, False)
+        return True, False  # binary constraint NOT(a AND b) remains
+
+    # An input known
+    if va is False or vb is False:
+        return False, vm.pin(out, False)
+    if va is True and vb is True:
+        return False, vm.pin(out, True)
+    if va is True:
+        return False, vm.merge_equal(out, b)
+    if vb is True:
+        return False, vm.merge_equal(out, a)
+
+    # Equal or complementary inputs
+    if a == b:
+        return False, vm.merge_equal(out, a)
+    if a == -b:
+        return False, vm.pin(out, False)
+
+    # Output is the complement of an input: out = NOT a and out = a AND b
+    # force a = 1, out = 0, b = 0.
+    if out == -a:
+        progress |= vm.pin(a, True)
+        progress |= vm.pin(b, False)
+        return False, progress
+    if out == -b:
+        progress |= vm.pin(b, True)
+        progress |= vm.pin(a, False)
+        return False, progress
+
+    # out == a (or out == b) leaves the implication a -> b: keep it.
+    return True, False
+
+
+def _simplify_xor(vm, out, a, b):
+    """Apply the XOR rules to out = a XOR b (canonical literals)."""
+    vo, va, vb = vm.value_of(out), vm.value_of(a), vm.value_of(b)
+    known = sum(x is not None for x in (vo, va, vb))
+
+    if known >= 2:
+        if vo is not None and va is not None:
+            return False, vm.pin(b, vo ^ va)
+        if vo is not None and vb is not None:
+            return False, vm.pin(a, vo ^ vb)
+        return False, vm.pin(out, va ^ vb)
+
+    if known == 1:
+        if vo is not None:   # a XOR b = vo
+            return False, (vm.merge_anti(a, b) if vo else vm.merge_equal(a, b))
+        if va is not None:   # out = vb XOR va
+            return False, (vm.merge_anti(out, b) if va else vm.merge_equal(out, b))
+        return False, (vm.merge_anti(out, a) if vb else vm.merge_equal(out, a))
+
+    if a == b:
+        return False, vm.pin(out, False)
+    if a == -b:
+        return False, vm.pin(out, True)
+    if out == a:
+        return False, vm.pin(b, False)
+    if out == -a:
+        return False, vm.pin(b, True)
+    if out == b:
+        return False, vm.pin(a, False)
+    if out == -b:
+        return False, vm.pin(a, True)
+    return True, False
+
+
 def _preprocess_loop(vm, and_clauses, xor_clauses, canon_lit, lit_val, max_iters):
-    for iteration in range(max_iters):
-        progress = False
+    """Apply the local AND/XOR rules until no rule fires (a fixed point).
 
-        # --- Simplify AND clauses ---
-        new_and = []
-        for (out, a, b) in and_clauses:
-            out, a, b = canon_lit(out), canon_lit(a), canon_lit(b)
-            vo, va, vb = lit_val(out), lit_val(a), lit_val(b)
+    Scheduling is worklist-based: a clause is re-examined only when the
+    equivalence class of one of its variables gains a pin or is merged.
+    The rule set, and therefore the fixed point, is the same as for repeated
+    full sweeps over the clause list; the worklist only avoids the many
+    sweeps needed to carry pins from the top columns down through the tail.
+    `max_iters` bounds the total number of clause visits per clause.
+    """
+    clauses = [("A",) + tuple(c) for c in and_clauses] + \
+              [("X",) + tuple(c) for c in xor_clauses]
+    alive = [True] * len(clauses)
 
-            # Case: output is known
-            if vo is not None:
-                if vo:  # out = True => a = True AND b = True
-                    if vm.pin(a, True): progress = True
-                    if vm.pin(b, True): progress = True
-                    continue
-                else:  # out = False => at least one input is False
-                    if va is True:  # a=T, out=F => b=F
-                        if vm.pin(b, False): progress = True
-                        continue
-                    elif vb is True:  # b=T, out=F => a=F
-                        if vm.pin(a, False): progress = True
-                        continue
-                    elif va is False or vb is False:
-                        continue  # already satisfied
-                    elif a == -b:  # a AND NOT(a) = False, already known
-                        continue
-                    # else: can't resolve further, but out=0 is still useful
-                    # keep as reduced clause
-                    new_and.append((out, a, b))
-                    continue
+    occ = defaultdict(list)          # variable -> clause ids
+    for cid, (_, o, a, b) in enumerate(clauses):
+        for lit in (o, a, b):
+            occ[abs(lit)].append(cid)
 
-            # Case: an input is known
-            if va is not None or vb is not None:
-                if va is False or vb is False:  # out = False
-                    if vm.pin(out, False): progress = True
-                    continue
-                if va is True and vb is True:
-                    if vm.pin(out, True): progress = True
-                    continue
-                if va is True:  # out = b
-                    if vm.merge_equal(out, b): progress = True
-                    continue
-                if vb is True:  # out = a
-                    if vm.merge_equal(out, a): progress = True
-                    continue
+    members = defaultdict(list)      # current root -> variables in its class
+    for v in vm.all_vars():
+        members[abs(vm.find(v))].append(v)
 
-            # Case: inputs are equal or anti-equal
-            if a == b:  # out = a AND a = a
-                if vm.merge_equal(out, a): progress = True
+    queue = deque(range(len(clauses)))
+    queued = [True] * len(clauses)
+
+    def touch(root):
+        for v in members.get(root, ()):
+            for cid in occ.get(v, ()):
+                if alive[cid] and not queued[cid]:
+                    queued[cid] = True
+                    queue.append(cid)
+
+    def on_merge(survivor, absorbed):
+        members[survivor].extend(members.pop(absorbed, [absorbed]))
+        touch(survivor)
+
+    vm.on_merge = on_merge
+    vm.on_pin = touch
+
+    visits = 0
+    limit = max_iters * max(1, len(clauses))
+    try:
+        while queue:
+            cid = queue.popleft()
+            queued[cid] = False
+            if not alive[cid]:
                 continue
-            if a == -b:  # out = a AND NOT(a) = False
-                if vm.pin(out, False): progress = True
-                continue
+            visits += 1
+            if visits > limit:
+                raise RuntimeError("Preprocessing did not converge")
+            kind, o, a, b = clauses[cid]
+            o, a, b = canon_lit(o), canon_lit(a), canon_lit(b)
+            if kind == "A":
+                keep, _ = _simplify_and(vm, o, a, b)
+            else:
+                keep, _ = _simplify_xor(vm, o, a, b)
+            if keep:
+                clauses[cid] = (kind, o, a, b)
+            else:
+                alive[cid] = False
+    finally:
+        vm.on_merge = None
+        vm.on_pin = None
 
-            # Case: out equals one of the inputs
-            if out == a:  # a = a AND b => a implies b (a <= b), so a => b=T or a=F
-                # a = a AND b means: if a=T then b=T; if a=F then OK.
-                # This is equivalent to: NOT(a) OR b, i.e., a => b
-                # Can't resolve without more info, keep it
-                new_and.append((out, a, b))
-                continue
-            if out == b:
-                new_and.append((out, a, b))
-                continue
-
-            new_and.append((out, a, b))
-
-        and_clauses[:] = new_and
-
-        # --- Simplify XOR clauses ---
-        new_xor = []
-        for (out, a, b) in xor_clauses:
-            out, a, b = canon_lit(out), canon_lit(a), canon_lit(b)
-            vo, va, vb = lit_val(out), lit_val(a), lit_val(b)
-
-            # Count known values
-            known = sum(x is not None for x in [vo, va, vb])
-
-            if known >= 2:
-                # Can determine the third
-                if vo is not None and va is not None:
-                    # b = out XOR a
-                    if vm.pin(b, vo ^ va): progress = True
-                    continue
-                if vo is not None and vb is not None:
-                    if vm.pin(a, vo ^ vb): progress = True
-                    continue
-                if va is not None and vb is not None:
-                    if vm.pin(out, va ^ vb): progress = True
-                    continue
-
-            if known == 1:
-                if vo is not None:
-                    if vo:  # out=T => a XOR b = T => a = NOT b
-                        if vm.merge_anti(a, b): progress = True
-                    else:   # out=F => a = b
-                        if vm.merge_equal(a, b): progress = True
-                    continue
-                if va is not None:
-                    if va:  # a=T => out = NOT b
-                        if vm.merge_anti(out, b): progress = True
-                    else:   # a=F => out = b
-                        if vm.merge_equal(out, b): progress = True
-                    continue
-                if vb is not None:
-                    if vb:
-                        if vm.merge_anti(out, a): progress = True
-                    else:
-                        if vm.merge_equal(out, a): progress = True
-                    continue
-
-            # Check for equal/anti-equal variables
-            if a == b:  # out = a XOR a = 0
-                if vm.pin(out, False): progress = True
-                continue
-            if a == -b:  # out = a XOR NOT(a) = 1
-                if vm.pin(out, True): progress = True
-                continue
-            if out == a:  # a = a XOR b => b = 0
-                if vm.pin(b, False): progress = True
-                continue
-            if out == -a:  # NOT(a) = a XOR b => b = 1
-                if vm.pin(b, True): progress = True
-                continue
-            if out == b:
-                if vm.pin(a, False): progress = True
-                continue
-            if out == -b:
-                if vm.pin(a, True): progress = True
-                continue
-
-            new_xor.append((out, a, b))
-
-        xor_clauses[:] = new_xor
-
-        # --- Cross-clause inference: XOR pairs sharing variables ---
-        # For each pair of XOR clauses sharing two literals, derive new info
-        # (This is the symmetric-difference / Gaussian elimination step)
-        if len(xor_clauses) < 500:  # only for manageable sizes
-            xor_by_var = defaultdict(list)
-            for idx, (out, a, b) in enumerate(xor_clauses):
-                for lit in [out, a, b]:
-                    xor_by_var[abs(lit)].append(idx)
-
-            inferred = []
-            seen_pairs = set()
-            for var, indices in xor_by_var.items():
-                for i in range(len(indices)):
-                    for j in range(i + 1, len(indices)):
-                        idx_i, idx_j = indices[i], indices[j]
-                        pair = (min(idx_i, idx_j), max(idx_i, idx_j))
-                        if pair in seen_pairs:
-                            continue
-                        seen_pairs.add(pair)
-                        if idx_i >= len(xor_clauses) or idx_j >= len(xor_clauses):
-                            continue
-                        c1 = set(xor_clauses[idx_i])
-                        c2 = set(xor_clauses[idx_j])
-                        # XOR clauses: out = a XOR b means {out, a, b} with
-                        # even parity.  Symmetric difference of two such sets
-                        # (after accounting for signs) gives a new XOR relation.
-                        # This is complex with signed literals; skip for now.
-
-        if not progress:
-            break
-
+    and_clauses[:] = [c[1:] for i, c in enumerate(clauses) if alive[i] and c[0] == "A"]
+    xor_clauses[:] = [c[1:] for i, c in enumerate(clauses) if alive[i] and c[0] == "X"]
     return and_clauses, xor_clauses
 
 
@@ -805,8 +825,10 @@ def write_ising(h, J, E0, num_spins, planted_spins, file=sys.stdout, comments=No
     Diagonal entries (i==j) encode local fields h_i.
     Off-diagonal entries (i<j) encode couplings J_ij.
     Pure data — no comment or header lines.
-    The ground-state energy E0 is not stored in the file;
-    it should be encoded in the filename by the caller.
+    The constant offset E0 is not stored in the file; the caller encodes it
+    in the filename.  With H = E0 + sum_i h_i s_i + sum_{i<j} J_ij s_i s_j,
+    the planted state has H = 0, so the Hamiltonian stored here (fields and
+    couplings only) has ground-state energy -E0.
     """
     for i in sorted(h.keys()):
         if h[i] != 0:
@@ -843,14 +865,18 @@ def print_stats(p, q, vm, and_clauses, xor_clauses, cnf_clauses, num_vars,
         print(f"    Boolean variables:  {pre_vars}")
         print(f"    AND clauses:        {pre_and}")
         print(f"    XOR clauses:        {pre_xor}")
-        print(f"    Total constraints:  {pre_and + pre_xor}")
+        print(f"    AND + XOR:          {pre_and + pre_xor}")
         print()
     print(f"  Post-reduction (residual):")
     print(f"    AND clauses:        {len(and_clauses)}")
     print(f"    XOR clauses:        {len(xor_clauses)}")
-    n_pinned = len(vm.pinned)
-    print(f"    Variables pinned:    {n_pinned}")
-    print(f"    Free variables:     {num_vars}")
+    all_v = vm.all_vars()
+    n_fixed = sum(1 for v in all_v if vm.value_of(v) is not None)
+    free_roots = {abs(vm.find(v)) for v in all_v if vm.value_of(v) is None}
+    n_merged = len(all_v) - n_fixed - len(free_roots)
+    print(f"    Variables fixed:    {n_fixed}")
+    print(f"    Variables merged:   {n_merged}  (equal or complementary to a free variable)")
+    print(f"    Free variables:     {len(free_roots)}")
     print()
     print(f"  DIMACS CNF:")
     print(f"    Variables:          {num_vars}")
@@ -864,7 +890,8 @@ def print_stats(p, q, vm, and_clauses, xor_clauses, cnf_clauses, num_vars,
         print(f"    Spins:              {num_spins}")
         print(f"    Nonzero fields:     {n_fields}")
         print(f"    Nonzero couplings:  {n_couplings}")
-        print(f"    Constant offset E0: {E0}")
+        print(f"    Constant offset E0: {E0}  (H = E0 + sum h s + sum J s s; H = 0 at the"
+              f" planted state, so the h/J part alone has ground energy -E0)")
 
 
 # =============================================================================

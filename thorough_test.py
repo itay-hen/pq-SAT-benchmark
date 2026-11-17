@@ -346,6 +346,49 @@ print("=" * 70)
 for p, q in [(3, 5), (3, 7), (5, 7), (7, 11), (7, 13), (5, 11)]:
     test_exhaustive_small(p, q)
 
+
+def test_tail_forced_zero(p, q):
+    """Columns k >= n_p + n_q can only hold zeros: any 1 there would make the
+    weighted column sum exceed p'q' < 2^(n_p+n_q).  Preprocessing must find
+    this, i.e. pin every such variable to False."""
+    vm, and_cl, xor_cl, pins, planted, pv, qv = generate_clauses(p, q)
+    width = p.bit_length() + q.bit_length()
+    tail = [v for v, k in vm.column.items() if k >= width]
+    preprocess(vm, and_cl, xor_cl, pins, planted)
+    check(all(vm.value_of(v) is False for v in tail),
+          f"tail not eliminated for {p}x{q}")
+    # The residual system must be fully simplified: the only fixed literal
+    # allowed in a residual relation is the 0-output of an AND, which leaves
+    # the binary constraint NOT(x AND y) on two free inputs.  (That output
+    # literal may be represented by any variable of the class pinned to 0,
+    # including a tail variable.)
+    ok = True
+    for (o, a, b) in and_cl:
+        if vm.value_of(a) is not None or vm.value_of(b) is not None:
+            ok = False
+        if vm.value_of(o) not in (None, False):
+            ok = False
+    for c in xor_cl:
+        if any(vm.value_of(l) is not None for l in c):
+            ok = False
+    check(ok, f"residual relation contains a fixed literal for {p}x{q}")
+
+
+print()
+print("=" * 70)
+print("TEST 9: High-order columns are eliminated by preprocessing")
+print("=" * 70)
+import random as _r
+from sympy import nextprime as _np
+_rng = _r.Random(2026)          # fixed seed: same instances on every run
+def _prime_bits(nbits):
+    while True:
+        cand = _np(_rng.randint(2 ** (nbits - 1), 2 ** nbits - 1))
+        if cand.bit_length() == nbits:
+            return cand
+for _a in range(2, 13):
+    for _b in range(2, 13):         # symmetric and asymmetric widths
+        test_tail_forced_zero(_prime_bits(_a), _prime_bits(_b))
 print(f"\nPassed so far: {PASS}, Failed: {FAIL}")
 
 print("\n" + "=" * 70)
