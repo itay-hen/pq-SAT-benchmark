@@ -845,6 +845,69 @@ def write_planted(planted_spins, num_spins, file=sys.stdout):
         file.write(f"{i} {s}\n")
 
 
+def write_cnf_solution(path, p, q, vm, var_map, num_vars, planted, p_vars, q_vars):
+    """Write the planted CNF solution and the factor-bit metadata.
+
+    The format is the one read by sat_benchmark (factorization check): lines
+    "p", "q", "N", then one "p_bit"/"q_bit" line per input bit giving either
+    a pinned value or the CNF variable and its polarity, followed by the
+    planted value of every CNF variable.
+    """
+    N = p * q
+    inv_map = {v: k for k, v in var_map.items()}
+    with open(path, "w") as f:
+        f.write(f"c Planted SAT solution for N = {N} = {p} x {q}\n")
+        f.write(f"c Format: variable_index value(0/1)\n")
+        f.write(f"c\n")
+        f.write(f"c Metadata for factorization verification:\n")
+        f.write(f"p {p}\n")
+        f.write(f"q {q}\n")
+        f.write(f"N {N}\n")
+        f.write(f"p_bits {len(p_vars)}\n")
+        for i, pv in enumerate(p_vars):
+            canon = vm.find(pv)
+            var = abs(canon)
+            neg = (canon < 0)
+            if var in vm.pinned:
+                val = vm.pinned[var] ^ neg
+                f.write(f"p_bit {i} pinned {1 if val else 0}\n")
+            elif var in var_map:
+                cnf_var = var_map[var]
+                f.write(f"p_bit {i} var {cnf_var} {'neg' if neg else 'pos'}\n")
+            else:
+                val = planted.get(var, False) ^ neg
+                f.write(f"p_bit {i} pinned {1 if val else 0}\n")
+        f.write(f"q_bits {len(q_vars)}\n")
+        for j, qv in enumerate(q_vars):
+            canon = vm.find(qv)
+            var = abs(canon)
+            neg = (canon < 0)
+            if var in vm.pinned:
+                val = vm.pinned[var] ^ neg
+                f.write(f"q_bit {j} pinned {1 if val else 0}\n")
+            elif var in var_map:
+                cnf_var = var_map[var]
+                f.write(f"q_bit {j} var {cnf_var} {'neg' if neg else 'pos'}\n")
+            else:
+                val = planted.get(var, False) ^ neg
+                f.write(f"q_bit {j} pinned {1 if val else 0}\n")
+        f.write(f"c\n")
+        f.write(f"c Planted assignment (all CNF variables):\n")
+        for new_var in range(1, num_vars + 1):
+            old_var = inv_map.get(new_var)
+            if old_var is not None:
+                canon = vm.find(old_var)
+                var = abs(canon)
+                neg = (canon < 0)
+                if var in planted:
+                    val = planted[var] ^ neg
+                elif var in vm.pinned:
+                    val = vm.pinned[var] ^ neg
+                else:
+                    val = False
+                f.write(f"{new_var} {1 if val else 0}\n")
+
+
 # =============================================================================
 # Statistics
 # =============================================================================
@@ -1073,59 +1136,9 @@ Examples:
 
     if do_cnf and do_ising:
         # Also write planted CNF solution
-        inv_map = {v: k for k, v in var_map.items()}
-        with open(f"{prefix}_cnf_solution.txt", "w") as f:
-            f.write(f"c Planted SAT solution for N = {N} = {p} x {q}\n")
-            f.write(f"c Format: variable_index value(0/1)\n")
-            f.write(f"c\n")
-            f.write(f"c Metadata for factorization verification:\n")
-            f.write(f"p {p}\n")
-            f.write(f"q {q}\n")
-            f.write(f"N {N}\n")
-            f.write(f"p_bits {len(p_vars)}\n")
-            for i, pv in enumerate(p_vars):
-                canon = vm.find(pv)
-                var = abs(canon)
-                neg = (canon < 0)
-                if var in vm.pinned:
-                    val = vm.pinned[var] ^ neg
-                    f.write(f"p_bit {i} pinned {1 if val else 0}\n")
-                elif var in var_map:
-                    cnf_var = var_map[var]
-                    f.write(f"p_bit {i} var {cnf_var} {'neg' if neg else 'pos'}\n")
-                else:
-                    val = planted.get(var, False) ^ neg
-                    f.write(f"p_bit {i} pinned {1 if val else 0}\n")
-            f.write(f"q_bits {len(q_vars)}\n")
-            for j, qv in enumerate(q_vars):
-                canon = vm.find(qv)
-                var = abs(canon)
-                neg = (canon < 0)
-                if var in vm.pinned:
-                    val = vm.pinned[var] ^ neg
-                    f.write(f"q_bit {j} pinned {1 if val else 0}\n")
-                elif var in var_map:
-                    cnf_var = var_map[var]
-                    f.write(f"q_bit {j} var {cnf_var} {'neg' if neg else 'pos'}\n")
-                else:
-                    val = planted.get(var, False) ^ neg
-                    f.write(f"q_bit {j} pinned {1 if val else 0}\n")
-            f.write(f"c\n")
-            f.write(f"c Planted assignment (all CNF variables):\n")
-            for new_var in range(1, num_vars + 1):
-                old_var = inv_map.get(new_var)
-                if old_var is not None:
-                    canon = vm.find(old_var)
-                    var = abs(canon)
-                    neg = (canon < 0)
-                    if var in planted:
-                        val = planted[var] ^ neg
-                    elif var in vm.pinned:
-                        val = vm.pinned[var] ^ neg
-                    else:
-                        val = False
-                    f.write(f"{new_var} {1 if val else 0}\n")
-            print(f"Wrote {prefix}_cnf_solution.txt", file=sys.stderr)
+        write_cnf_solution(f"{prefix}_cnf_solution.txt", p, q, vm, var_map,
+                           num_vars, planted, p_vars, q_vars)
+        print(f"Wrote {prefix}_cnf_solution.txt", file=sys.stderr)
 
 
 if __name__ == "__main__":
