@@ -76,3 +76,17 @@ Ising Hamiltonians of the form
 H(s) = E0 + sum_i h_i s_i + sum_{i<j} J_ij s_i s_j,
 with known planted ground state (H = 0 at the planted state, i.e. the fields and couplings alone give -E0);
 benchmark data, such as seeds, solver outputs, and timing information.
+
+## Ising compilation
+
+By default each residual AND relation gets a quadratic AND gadget and each
+XOR relation an XOR gadget with one auxiliary spin; this is the released
+benchmark.  With `--gadget combined` every XOR relation whose half-adder AND
+partner is also present is compiled with it as
+`(1/2)(s_a + s_b - s_s - 2 s_t - 1)^2`, which needs no auxiliary spin.  The
+problem, the planted solution and the CNF are unchanged; the Ising model has
+fewer spins (28 instead of 40 for 11 x 13).
+
+`analysis/` holds two scripts (they need `pip install python-sat`) that
+certify the ground-state degeneracy and the exact gap of an instance:
+`certify_ground_states.py 7x13 ...` and `exact_gap.py 7x13 ...`.

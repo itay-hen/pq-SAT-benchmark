@@ -391,6 +391,52 @@ for _a in range(2, 13):
         test_tail_forced_zero(_prime_bits(_a), _prime_bits(_b))
 print(f"\nPassed so far: {PASS}, Failed: {FAIL}")
 
+print()
+print("=" * 70)
+print("TEST 10: Combined half-adder gadget (exhaustive spectrum, small cases)")
+print("=" * 70)
+import itertools as _it
+def test_combined_gadget(p, q):
+    """With gadget='combined' the planted state must be the only zero-energy
+    state, every other state must have H >= 2, all coefficients are integers,
+    and the spin count must not exceed that of the separate gadgets."""
+    vm, a_cl, x_cl, pins, planted, pv, qv = generate_clauses(p, q)
+    preprocess(vm, a_cl, x_cl, pins, planted)
+    n_sep = to_ising(vm, a_cl, x_cl, planted)[5]
+    h, J, E0, smap, ps, n = to_ising(vm, a_cl, x_cl, planted, gadget="combined")
+    check(n <= n_sep, f"combined gadget has more spins for {p}x{q}")
+    check(all(float(v).is_integer() for v in list(h.values()) + list(J.values()) + [E0]),
+          f"non-integer coefficient for {p}x{q}")
+    if n_sep > 20:
+        return
+    import numpy as _npy
+    def _spectrum(h_, J_, E0_, n_):
+        S = _npy.array(list(_it.product((-1, 1), repeat=n_)), dtype=_npy.int8).reshape(2 ** n_, n_)
+        E = _npy.full(len(S), float(E0_))
+        for i, v in h_.items():
+            E += v * S[:, i - 1]
+        for (i, j), v in J_.items():
+            E += v * S[:, i - 1] * S[:, j - 1]
+        return S, E
+    S, E = _spectrum(h, J, E0, n)
+    zero = _npy.abs(E) < 1e-9
+    check(E.min() > -1e-9, f"negative energy for {p}x{q}")
+    check(_npy.all(E[~zero] >= 2 - 1e-9), f"excited state below 2 for {p}x{q}")
+    planted_row = _npy.array([ps[i] for i in range(1, n + 1)], dtype=_npy.int8)
+    check(n == 0 or bool(_npy.any(_npy.all(S[zero] == planted_row, axis=1))),
+          f"planted state not a ground state for {p}x{q}")
+    # Same number of ground states as the separate-gadget model (= models of
+    # the residual CNF; the swap degeneracy can sit in a variable that no
+    # residual relation mentions, in which case both counts are 1).
+    hs, Js, E0s, _, _, ns_ = to_ising(vm, a_cl, x_cl, planted)
+    _, Es = _spectrum(hs, Js, E0s, ns_)
+    check(int(zero.sum()) == int((_npy.abs(Es) < 1e-9).sum()),
+          f"ground-state count differs between gadgets for {p}x{q}")
+for _p, _q in [(2, 2), (2, 3), (3, 5), (5, 7), (5, 11), (7, 13), (5, 19), (7, 17),
+               (5, 5), (11, 13), (13, 17), (7, 31), (151, 227)]:
+    test_combined_gadget(_p, _q)
+print(f"\nPassed so far: {PASS}, Failed: {FAIL}")
+
 print("\n" + "=" * 70)
 if FAIL == 0:
     print(f"ALL {PASS} TESTS PASSED")

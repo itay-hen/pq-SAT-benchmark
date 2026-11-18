@@ -668,8 +668,18 @@ def write_dimacs(cnf_clauses, num_vars, file=sys.stdout, comments=None):
 # Stage 3b: Compile to Ising Hamiltonian
 # =============================================================================
 
-def to_ising(vm, and_clauses, xor_clauses, planted):
+def to_ising(vm, and_clauses, xor_clauses, planted, gadget="separate"):
     """Compile residual clauses into an Ising Hamiltonian H = E0 + sum h_i s_i + sum J_ij s_i s_j.
+
+    gadget = "separate" (default, the released benchmark): one AND gadget per
+        AND relation and one XOR gadget, with an auxiliary spin, per XOR relation.
+    gadget = "combined": every XOR relation whose half-adder AND partner (same
+        two input literals) is also present is compiled together with it as
+        E = (1/2) (s_a + s_b - s_s - 2 s_t - 1)^2, the spin form of
+        2 (a + b - s - 2t)^2.  It vanishes exactly when s = a XOR b and
+        t = a AND b, is >= 2 otherwise, and needs no auxiliary spin.  Unpaired
+        relations keep their separate gadgets.  Ground states and the planted
+        state are unchanged; only the XOR auxiliaries disappear.
 
     Returns:
         h: dict var -> field
@@ -753,6 +763,35 @@ def to_ising(vm, and_clauses, xor_clauses, planted):
             raise ValueError("Ising gadgets should not produce terms with >2 spins")
 
     E0_ref = [0.0]
+
+    if gadget not in ("separate", "combined"):
+        raise ValueError("gadget must be 'separate' or 'combined'")
+    if gadget == "combined":
+        and_by_inputs = defaultdict(list)
+        for idx, (out, a, b) in enumerate(and_clauses):
+            and_by_inputs[frozenset((vm.find(a), vm.find(b)))].append(idx)
+        used_and = set()
+        unpaired_xor = []
+        for (out, a, b) in xor_clauses:
+            key = frozenset((vm.find(a), vm.find(b)))
+            cand = [i for i in and_by_inputs.get(key, []) if i not in used_and]
+            if len(key) != 2 or not cand:
+                unpaired_xor.append((out, a, b))
+                continue
+            i = cand[0]
+            used_and.add(i)
+            t = and_clauses[i][0]
+            # L = s_a + s_b - s_s - 2 s_t - 1 ;  E = L^2 / 2
+            terms = [(1.0, resolve_lit(a)), (1.0, resolve_lit(b)),
+                     (-1.0, resolve_lit(out)), (-2.0, resolve_lit(t))]
+            c0 = -1.0
+            add_ising_term(0.5 * (c0 * c0 + sum(w * w for w, _ in terms)))
+            for k, (wk, fk) in enumerate(terms):
+                add_ising_term(c0 * wk, fk)
+                for wl, fl in terms[k + 1:]:
+                    add_ising_term(wk * wl, fk, fl)
+        and_clauses = [c for i, c in enumerate(and_clauses) if i not in used_and]
+        xor_clauses = unpaired_xor
 
     # AND gadget: E = 3 - s1 - s2 + s1*s2 + 2*s3 - 2*s1*s3 - 2*s2*s3
     # where s1, s2 are inputs, s3 is output
@@ -1023,6 +1062,10 @@ Examples:
     parser.add_argument("p", type=int, help="first factor")
     parser.add_argument("q", type=int, help="second factor")
     parser.add_argument("-o", "--output", help="output file prefix (default: factor_PxQ)")
+    parser.add_argument("--gadget", choices=("separate", "combined"), default="separate",
+                        help="Ising compilation: separate AND/XOR gadgets (default, "
+                             "the released benchmark) or combined half-adder "
+                             "gadgets without XOR auxiliaries")
     parser.add_argument("--no-preprocess", action="store_true",
                         help="skip Boolean preprocessing")
     parser.add_argument("--cnf-only", action="store_true",
@@ -1074,7 +1117,8 @@ Examples:
     # Ising compilation
     ising_data = None
     if do_ising:
-        ising_data = to_ising(vm, and_clauses, xor_clauses, planted)
+        ising_data = to_ising(vm, and_clauses, xor_clauses, planted,
+                              gadget=args.gadget)
 
     # Verification (always performed — this is the planted-solution guarantee)
     ok_cnf, bad_idx = verify_cnf(cnf_clauses, var_map, planted, vm)
