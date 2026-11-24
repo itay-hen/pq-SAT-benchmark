@@ -1,0 +1,22 @@
+kissat_version: 4.0.4
+cadical_version: 3.0.0
+cpu:  Intel(R) Xeon(R) Processor @ 2.10GHz
+command: ./sat_benchmark --solver kissat --timeout 1800 --tsv results/kissat/d13/factor_0005_p6571_q7013.tsv cnf/d13/factor_0005_p6571_q7013.cnf
+=== SAT Benchmark ===
+Timeout: 1800s
+Timeout command: /usr/bin/timeout
+Solvers: kissat (/home/claude/rerun/kissat)
+Instances: 1
+
+Instance                                     Vars  Clauses |     kissat  Time(s) Result  | 
+-----------------------------------------------------------------------------------------
+factor_0005_p6571_q7013.cnf                  3522    12322 |     kissat    0.143 SAT F   | 
+
+Result key: SAT/UNSAT/TIMEOUT/ERROR
+  F  = factorization verified (solver's assignment reconstructs p*q = N)
+  F! = factorization FAILED
+  C  = clauses verified (assignment satisfies all CNF clauses)
+  C! = clause verification FAILED
+
+TSV results written to: results/kissat/d13/factor_0005_p6571_q7013.tsv
+exit_status: 0

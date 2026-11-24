@@ -1,0 +1,34 @@
+#!/bin/bash
+# Re-run of the solver-scaling study (Fig. 3), one (instance, solver) pair per task.
+# Set --array to 0-(number of lines in commands.txt minus 1); make_benchmark_set.py
+# prints the right range.  The per-solver timeout is in commands.txt (default
+# 144000 s = 40 h); keep --time a few hours above it so the harness, not Slurm,
+# ends slow runs and the result is recorded as TIMEOUT.
+
+#SBATCH --account=hen_48
+#SBATCH --partition=albash
+#SBATCH --job-name=pqSATrerun
+#SBATCH --array=0-455%60
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=4G
+#SBATCH --time=44:00:00
+#SBATCH --output=logs/out_%A_%a.txt
+#SBATCH --error=logs/err_%A_%a.txt
+
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+
+CMD=$(sed -n "$((SLURM_ARRAY_TASK_ID+1))p" commands.txt)
+
+echo "task ${SLURM_ARRAY_TASK_ID} on $(hostname) at $(date -Is)"
+# Record solver versions in every log (the March run did not)
+echo "kissat_version: $(./kissat --version 2>&1 | head -1)"
+echo "cadical_version: $(./cadical --version 2>&1 | head -1)"
+echo "cpu: $(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2)"
+echo "command: ${CMD}"
+
+eval "${CMD}"
+echo "exit_status: $?"
+echo "finished at $(date -Is)"

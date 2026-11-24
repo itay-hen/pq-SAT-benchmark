@@ -1,0 +1,615 @@
+method	d	p	q	status	time	extra
+kissat	5	23	29	SAT	0.0075	
+kissat	5	17	23	SAT	0.0047	
+kissat	5	19	31	SAT	0.0041	
+kissat	5	17	31	SAT	0.0030	
+kissat	5	19	29	SAT	0.0059	
+kissat	5	29	31	SAT	0.0029	
+kissat	5	17	19	SAT	0.0032	
+kissat	5	23	31	SAT	0.0031	
+kissat	5	17	29	SAT	0.0029	
+kissat	5	19	23	SAT	0.0057	
+kissat	6	47	53	SAT	0.0092	
+kissat	6	59	61	SAT	0.0033	
+kissat	6	37	47	SAT	0.0039	
+kissat	6	53	61	SAT	0.0095	
+kissat	6	37	53	SAT	0.0092	
+kissat	6	37	61	SAT	0.0094	
+kissat	6	41	61	SAT	0.0088	
+kissat	6	37	59	SAT	0.0028	
+kissat	6	41	47	SAT	0.0074	
+kissat	6	41	59	SAT	0.0033	
+kissat	6	47	61	SAT	0.0088	
+kissat	6	53	59	SAT	0.0029	
+kissat	7	73	97	SAT	0.0035	
+kissat	7	89	127	SAT	0.0037	
+kissat	7	83	89	SAT	0.0116	
+kissat	7	79	109	SAT	0.0133	
+kissat	7	83	127	SAT	0.0032	
+kissat	7	101	103	SAT	0.0130	
+kissat	7	83	113	SAT	0.0135	
+kissat	7	89	113	SAT	0.0032	
+kissat	7	73	113	SAT	0.0147	
+kissat	7	71	109	SAT	0.0118	
+kissat	7	67	109	SAT	0.0119	
+kissat	7	67	103	SAT	0.0119	
+kissat	8	167	211	SAT	0.0201	
+kissat	8	181	239	SAT	0.0181	
+kissat	8	137	179	SAT	0.0181	
+kissat	8	139	173	SAT	0.0154	
+kissat	8	163	251	SAT	0.0192	
+kissat	8	197	227	SAT	0.0161	
+kissat	8	149	227	SAT	0.0178	
+kissat	8	211	251	SAT	0.0208	
+kissat	8	199	241	SAT	0.0225	
+kissat	8	151	233	SAT	0.0182	
+kissat	8	157	199	SAT	0.0185	
+kissat	8	197	239	SAT	0.0186	
+kissat	9	311	439	SAT	0.0317	
+kissat	9	311	397	SAT	0.0253	
+kissat	9	263	389	SAT	0.0312	
+kissat	9	263	467	SAT	0.0287	
+kissat	9	367	463	SAT	0.0325	
+kissat	9	317	439	SAT	0.0302	
+kissat	9	269	479	SAT	0.0254	
+kissat	9	401	409	SAT	0.0362	
+kissat	9	419	431	SAT	0.0257	
+kissat	9	313	317	SAT	0.0299	
+kissat	9	271	439	SAT	0.0252	
+kissat	9	379	449	SAT	0.0326	
+kissat	10	617	839	SAT	0.0338	
+kissat	10	613	757	SAT	0.0602	
+kissat	10	523	727	SAT	0.0954	
+kissat	10	769	919	SAT	0.0861	
+kissat	10	811	877	SAT	0.0361	
+kissat	10	631	829	SAT	0.0340	
+kissat	10	919	947	SAT	0.0552	
+kissat	10	563	617	SAT	0.0344	
+kissat	10	769	827	SAT	0.0509	
+kissat	10	719	787	SAT	0.0502	
+kissat	10	521	1013	SAT	0.0478	
+kissat	10	881	1009	SAT	0.0642	
+kissat	11	1913	1979	SAT	0.1920	
+kissat	11	1093	1619	SAT	0.2118	
+kissat	11	1399	1951	SAT	0.0616	
+kissat	11	1423	1783	SAT	0.0543	
+kissat	11	1213	1867	SAT	0.0876	
+kissat	11	1531	1949	SAT	0.0387	
+kissat	11	1301	1481	SAT	0.1219	
+kissat	11	1619	1993	SAT	0.1389	
+kissat	11	1301	1879	SAT	0.1065	
+kissat	11	1823	1867	SAT	0.1058	
+kissat	11	1129	1427	SAT	0.0424	
+kissat	11	1747	1999	SAT	0.0559	
+kissat	12	2333	3391	SAT	0.1676	
+kissat	12	2131	2371	SAT	0.2869	
+kissat	12	3457	3617	SAT	0.1190	
+kissat	12	2539	3169	SAT	0.3438	
+kissat	12	2069	3719	SAT	0.3686	
+kissat	12	2591	2927	SAT	0.1745	
+kissat	12	2749	3181	SAT	0.0577	
+kissat	12	2111	2309	SAT	0.1621	
+kissat	12	2143	3011	SAT	0.0621	
+kissat	12	2203	2551	SAT	0.1539	
+kissat	12	3343	3943	SAT	0.3480	
+kissat	12	3581	3793	SAT	0.0850	
+kissat	13	7283	7673	SAT	0.4397	
+kissat	13	4289	6803	SAT	0.5223	
+kissat	13	5099	6469	SAT	0.3750	
+kissat	13	6529	6709	SAT	0.4348	
+kissat	13	5101	6997	SAT	0.0631	
+kissat	13	6571	7013	SAT	0.1237	
+kissat	13	7243	7499	SAT	0.5829	
+kissat	13	4231	6257	SAT	0.3526	
+kissat	13	5231	6269	SAT	0.0639	
+kissat	13	6911	7951	SAT	0.1969	
+kissat	13	5743	6653	SAT	0.6323	
+kissat	13	5393	7459	SAT	0.4109	
+kissat	14	10711	13999	SAT	1.2667	
+kissat	14	8807	10453	SAT	1.1599	
+kissat	14	8923	13217	SAT	0.5229	
+kissat	14	10781	16057	SAT	0.5507	
+kissat	14	10103	14221	SAT	0.4124	
+kissat	14	13151	13537	SAT	1.5210	
+kissat	14	9391	14437	SAT	0.3139	
+kissat	14	12239	16363	SAT	0.5441	
+kissat	14	9323	9631	SAT	1.1428	
+kissat	14	12539	13627	SAT	1.5930	
+kissat	14	13331	16273	SAT	0.8237	
+kissat	14	11087	11411	SAT	1.0001	
+kissat	15	23599	30517	SAT	1.7878	
+kissat	15	25153	25171	SAT	0.7141	
+kissat	15	24061	25163	SAT	1.4514	
+kissat	15	29531	31393	SAT	2.9343	
+kissat	15	29473	29483	SAT	1.2858	
+kissat	15	16729	22051	SAT	0.5928	
+kissat	15	20663	27329	SAT	1.2056	
+kissat	15	18973	25457	SAT	0.9959	
+kissat	15	21491	27197	SAT	2.4208	
+kissat	15	25261	32441	SAT	2.4860	
+kissat	15	20749	31657	SAT	3.5894	
+kissat	15	23537	26347	SAT	1.3748	
+kissat	16	36319	38713	SAT	2.6909	
+kissat	16	41057	44641	SAT	0.7768	
+kissat	16	42853	56633	SAT	1.9165	
+kissat	16	35407	38971	SAT	3.3933	
+kissat	16	45307	55903	SAT	2.5541	
+kissat	16	38669	61153	SAT	0.7925	
+kissat	16	47491	48571	SAT	7.4204	
+kissat	16	46477	65179	SAT	4.2579	
+kissat	16	40361	52999	SAT	3.2291	
+kissat	16	60811	62927	SAT	4.8627	
+kissat	16	41809	62653	SAT	0.7344	
+kissat	16	38047	55439	SAT	2.1443	
+kissat	17	79319	98953	SAT	5.7653	
+kissat	17	67927	81223	SAT	2.0771	
+kissat	17	85621	109433	SAT	3.4631	
+kissat	17	67679	96787	SAT	7.7294	
+kissat	17	69997	115963	SAT	6.7349	
+kissat	17	66293	118673	SAT	12.4667	
+kissat	17	70199	126743	SAT	13.2802	
+kissat	17	70079	71699	SAT	4.6237	
+kissat	17	92353	102121	SAT	8.0773	
+kissat	17	103141	127321	SAT	2.6375	
+kissat	17	75277	99529	SAT	9.8521	
+kissat	17	82613	127711	SAT	12.9744	
+kissat	18	229963	230567	SAT	0.3861	
+kissat	18	194683	254663	SAT	17.6602	
+kissat	18	197147	232051	SAT	8.0299	
+kissat	18	157721	202823	SAT	13.4419	
+kissat	18	194659	236813	SAT	20.7698	
+kissat	18	140551	211583	SAT	18.5961	
+kissat	18	190271	219529	SAT	7.1793	
+kissat	18	159119	226547	SAT	12.1402	
+kissat	18	187513	192971	SAT	26.7117	
+kissat	18	172307	180751	SAT	4.1387	
+kissat	18	157679	250967	SAT	0.7782	
+kissat	18	148457	192677	SAT	7.7920	
+pt_factor	5	23	29	SAT	0.0000	evals 10
+pt_factor	5	17	23	SAT	0.0000	evals 6
+pt_factor	5	19	31	SAT	0.0000	evals 16
+pt_factor	5	17	31	SAT	0.0000	evals 30
+pt_factor	5	19	29	SAT	0.0000	evals 30
+pt_factor	5	29	31	SAT	0.0000	evals 9
+pt_factor	5	17	19	SAT	0.0000	evals 3
+pt_factor	5	23	31	SAT	0.0000	evals 15
+pt_factor	5	17	29	SAT	0.0000	evals 5
+pt_factor	5	19	23	SAT	0.0000	evals 13
+pt_factor	6	47	53	SAT	0.0000	evals 480
+pt_factor	6	59	61	SAT	0.0000	evals 42
+pt_factor	6	37	47	SAT	0.0000	evals 37
+pt_factor	6	53	61	SAT	0.0000	evals 168
+pt_factor	6	37	53	SAT	0.0000	evals 16
+pt_factor	6	37	61	SAT	0.0000	evals 66
+pt_factor	6	41	61	SAT	0.0000	evals 66
+pt_factor	6	37	59	SAT	0.0000	evals 70
+pt_factor	6	41	47	SAT	0.0000	evals 66
+pt_factor	6	41	59	SAT	0.0000	evals 29
+pt_factor	6	47	61	SAT	0.0000	evals 21
+pt_factor	6	53	59	SAT	0.0000	evals 41
+pt_factor	7	73	97	SAT	0.0000	evals 9
+pt_factor	7	89	127	SAT	0.0000	evals 77
+pt_factor	7	83	89	SAT	0.0000	evals 466
+pt_factor	7	79	109	SAT	0.0000	evals 1040
+pt_factor	7	83	127	SAT	0.0000	evals 209
+pt_factor	7	101	103	SAT	0.0000	evals 796
+pt_factor	7	83	113	SAT	0.0001	evals 2210
+pt_factor	7	89	113	SAT	0.0000	evals 86
+pt_factor	7	73	113	SAT	0.0000	evals 48
+pt_factor	7	71	109	SAT	0.0000	evals 67
+pt_factor	7	67	109	SAT	0.0000	evals 801
+pt_factor	7	67	103	SAT	0.0000	evals 183
+pt_factor	8	167	211	SAT	0.0000	evals 1690
+pt_factor	8	181	239	SAT	0.0000	evals 684
+pt_factor	8	137	179	SAT	0.0002	evals 7157
+pt_factor	8	139	173	SAT	0.0000	evals 501
+pt_factor	8	163	251	SAT	0.0001	evals 5523
+pt_factor	8	197	227	SAT	0.0002	evals 6898
+pt_factor	8	149	227	SAT	0.0001	evals 2676
+pt_factor	8	211	251	SAT	0.0000	evals 1247
+pt_factor	8	199	241	SAT	0.0000	evals 1591
+pt_factor	8	151	233	SAT	0.0000	evals 631
+pt_factor	8	157	199	SAT	0.0000	evals 1527
+pt_factor	8	197	239	SAT	0.0000	evals 328
+pt_factor	9	311	439	SAT	0.0000	evals 2132
+pt_factor	9	311	397	SAT	0.0005	evals 22455
+pt_factor	9	263	389	SAT	0.0000	evals 1718
+pt_factor	9	263	467	SAT	0.0001	evals 3968
+pt_factor	9	367	463	SAT	0.0001	evals 2613
+pt_factor	9	317	439	SAT	0.0004	evals 14068
+pt_factor	9	269	479	SAT	0.0000	evals 1607
+pt_factor	9	401	409	SAT	0.0001	evals 2826
+pt_factor	9	419	431	SAT	0.0001	evals 4982
+pt_factor	9	313	317	SAT	0.0000	evals 576
+pt_factor	9	271	439	SAT	0.0004	evals 16759
+pt_factor	9	379	449	SAT	0.0002	evals 7645
+pt_factor	10	617	839	SAT	0.0009	evals 37568
+pt_factor	10	613	757	SAT	0.0024	evals 103475
+pt_factor	10	523	727	SAT	0.0000	evals 1872
+pt_factor	10	769	919	SAT	0.0000	evals 2111
+pt_factor	10	811	877	SAT	0.0006	evals 27054
+pt_factor	10	631	829	SAT	0.0023	evals 88041
+pt_factor	10	919	947	SAT	0.0003	evals 15090
+pt_factor	10	563	617	SAT	0.0028	evals 129979
+pt_factor	10	769	827	SAT	0.0002	evals 7568
+pt_factor	10	719	787	SAT	0.0005	evals 21079
+pt_factor	10	521	1013	SAT	0.0007	evals 23741
+pt_factor	10	881	1009	SAT	0.0002	evals 7401
+pt_factor	11	1913	1979	SAT	0.0011	evals 45350
+pt_factor	11	1093	1619	SAT	0.0012	evals 55020
+pt_factor	11	1399	1951	SAT	0.0005	evals 21472
+pt_factor	11	1423	1783	SAT	0.0004	evals 13986
+pt_factor	11	1213	1867	SAT	0.0008	evals 37944
+pt_factor	11	1531	1949	SAT	0.0002	evals 8992
+pt_factor	11	1301	1481	SAT	0.0025	evals 111196
+pt_factor	11	1619	1993	SAT	0.0049	evals 199252
+pt_factor	11	1301	1879	SAT	0.0197	evals 923721
+pt_factor	11	1823	1867	SAT	0.0003	evals 15283
+pt_factor	11	1129	1427	SAT	0.0014	evals 61252
+pt_factor	11	1747	1999	SAT	0.0006	evals 26473
+pt_factor	12	2333	3391	SAT	0.0021	evals 77246
+pt_factor	12	2131	2371	SAT	0.0030	evals 136904
+pt_factor	12	3457	3617	SAT	0.0000	evals 698
+pt_factor	12	2539	3169	SAT	0.0009	evals 39834
+pt_factor	12	2069	3719	SAT	0.0030	evals 114859
+pt_factor	12	2591	2927	SAT	0.0048	evals 228328
+pt_factor	12	2749	3181	SAT	0.0021	evals 96390
+pt_factor	12	2111	2309	SAT	0.0004	evals 18083
+pt_factor	12	2143	3011	SAT	0.0001	evals 2598
+pt_factor	12	2203	2551	SAT	0.0012	evals 55881
+pt_factor	12	3343	3943	SAT	0.0019	evals 80465
+pt_factor	12	3581	3793	SAT	0.0011	evals 53421
+pt_factor	13	7283	7673	SAT	0.0025	evals 113709
+pt_factor	13	4289	6803	SAT	0.0002	evals 8855
+pt_factor	13	5099	6469	SAT	0.0043	evals 202209
+pt_factor	13	6529	6709	SAT	0.0028	evals 111328
+pt_factor	13	5101	6997	SAT	0.0160	evals 769248
+pt_factor	13	6571	7013	SAT	0.0806	evals 3245764
+pt_factor	13	7243	7499	SAT	0.0549	evals 2661509
+pt_factor	13	4231	6257	SAT	0.0032	evals 153831
+pt_factor	13	5231	6269	SAT	0.0039	evals 181207
+pt_factor	13	6911	7951	SAT	0.0007	evals 29702
+pt_factor	13	5743	6653	SAT	0.0213	evals 1023391
+pt_factor	13	5393	7459	SAT	0.0277	evals 1344507
+pt_factor	14	10711	13999	SAT	0.1241	evals 6042419
+pt_factor	14	8807	10453	SAT	0.1129	evals 5549622
+pt_factor	14	8923	13217	SAT	0.0892	evals 4365593
+pt_factor	14	10781	16057	SAT	0.0089	evals 430148
+pt_factor	14	10103	14221	SAT	0.0166	evals 808596
+pt_factor	14	13151	13537	SAT	0.0322	evals 1557198
+pt_factor	14	9391	14437	SAT	0.0778	evals 3713855
+pt_factor	14	12239	16363	SAT	0.0012	evals 56016
+pt_factor	14	9323	9631	SAT	0.0188	evals 919212
+pt_factor	14	12539	13627	SAT	0.4000	evals 18459271
+pt_factor	14	13331	16273	SAT	0.0038	evals 162532
+pt_factor	14	11087	11411	SAT	0.1199	evals 5775803
+pt_factor	15	23599	30517	SAT	0.0249	evals 1221926
+pt_factor	15	25153	25171	SAT	0.0704	evals 3387612
+pt_factor	15	24061	25163	SAT	0.0215	evals 1055270
+pt_factor	15	29531	31393	SAT	0.1498	evals 7231320
+pt_factor	15	29473	29483	SAT	0.0986	evals 4862364
+pt_factor	15	16729	22051	SAT	0.9217	evals 44234062
+pt_factor	15	20663	27329	SAT	0.0715	evals 3463405
+pt_factor	15	18973	25457	SAT	0.1696	evals 8341243
+pt_factor	15	21491	27197	SAT	0.2045	evals 9227272
+pt_factor	15	25261	32441	SAT	0.0527	evals 2492718
+pt_factor	15	20749	31657	SAT	0.3113	evals 14697521
+pt_factor	15	23537	26347	SAT	0.1419	evals 7012663
+pt_factor	16	36319	38713	SAT	1.1305	evals 56404136
+pt_factor	16	41057	44641	SAT	0.2485	evals 11630206
+pt_factor	16	42853	56633	SAT	0.5285	evals 23768804
+pt_factor	16	35407	38971	SAT	0.5989	evals 29157619
+pt_factor	16	45307	55903	SAT	0.6374	evals 31903714
+pt_factor	16	38669	61153	SAT	1.0931	evals 53932134
+pt_factor	16	47491	48571	SAT	0.8602	evals 42485407
+pt_factor	16	46477	65179	SAT	0.1923	evals 9467029
+pt_factor	16	40361	52999	SAT	0.4464	evals 21535016
+pt_factor	16	60811	62927	SAT	1.6907	evals 79957014
+pt_factor	16	41809	62653	SAT	1.2033	evals 57617529
+pt_factor	16	38047	55439	SAT	0.2941	evals 14587297
+pt_factor	17	79319	98953	SAT	0.9895	evals 49274494
+pt_factor	17	67927	81223	SAT	2.0140	evals 97163521
+pt_factor	17	85621	109433	SAT	3.1783	evals 159110939
+pt_factor	17	67679	96787	SAT	0.5734	evals 28702588
+pt_factor	17	69997	115963	SAT	0.3599	evals 17674384
+pt_factor	17	66293	118673	SAT	0.1041	evals 5204454
+pt_factor	17	70199	126743	SAT	1.8111	evals 89665128
+pt_factor	17	70079	71699	SAT	0.7874	evals 38290477
+pt_factor	17	92353	102121	SAT	1.2659	evals 61976036
+pt_factor	17	103141	127321	SAT	0.7548	evals 37494528
+pt_factor	17	75277	99529	SAT	1.3703	evals 67656382
+pt_factor	17	82613	127711	SAT	0.3558	evals 17783885
+pt_factor	18	229963	230567	SAT	0.4690	evals 22719352
+pt_factor	18	194683	254663	SAT	1.0868	evals 49489348
+pt_factor	18	197147	232051	SAT	0.6671	evals 32214512
+pt_factor	18	157721	202823	SAT	14.2537	evals 715440564
+pt_factor	18	194659	236813	SAT	2.6163	evals 130237668
+pt_factor	18	140551	211583	SAT	2.1461	evals 109689826
+pt_factor	18	190271	219529	SAT	0.3250	evals 17020207
+pt_factor	18	159119	226547	SAT	19.5475	evals 976518363
+pt_factor	18	187513	192971	SAT	3.9250	evals 198936415
+pt_factor	18	172307	180751	SAT	3.3789	evals 171414045
+pt_factor	18	157679	250967	SAT	0.5562	evals 25843409
+pt_factor	18	148457	192677	SAT	10.7373	evals 541289033
+pt_uniform	5	23	29	SAT	0.0050	bestE 0
+pt_uniform	5	17	23	SAT	0.0259	bestE 0
+pt_uniform	5	19	31	SAT	0.0398	bestE 0
+pt_uniform	5	17	31	SAT	0.1884	bestE 0
+pt_uniform	5	19	29	SAT	0.0050	bestE 0
+pt_uniform	5	29	31	SAT	0.0149	bestE 0
+pt_uniform	5	17	19	SAT	0.1167	bestE 0
+pt_uniform	5	23	31	SAT	0.0802	bestE 0
+pt_uniform	5	17	29	SAT	0.0091	bestE 0
+pt_uniform	5	19	23	SAT	0.0367	bestE 0
+pt_uniform	6	47	53	SAT	0.4322	bestE 0
+pt_uniform	6	59	61	SAT	0.6122	bestE 0
+pt_uniform	6	37	47	SAT	0.1585	bestE 0
+pt_uniform	6	53	61	SAT	2.5220	bestE 0
+pt_uniform	6	37	53	SAT	0.8369	bestE 0
+pt_uniform	6	37	61	SAT	0.7897	bestE 0
+pt_uniform	6	41	61	SAT	2.1134	bestE 0
+pt_uniform	6	37	59	SAT	4.5756	bestE 0
+pt_uniform	6	41	47	SAT	0.4134	bestE 0
+pt_uniform	6	41	59	SAT	0.8279	bestE 0
+pt_uniform	6	47	61	SAT	0.8080	bestE 0
+pt_uniform	6	53	59	SAT	0.4653	bestE 0
+pt_uniform	7	73	97	SAT	29.1890	bestE 0
+pt_uniform	7	89	127	SAT	26.2412	bestE 0
+pt_uniform	7	83	89	SAT	2.8939	bestE 0
+pt_uniform	7	79	109	SAT	29.5175	bestE 0
+pt_uniform	7	83	127	SAT	8.1838	bestE 0
+pt_uniform	7	101	103	SAT	133.4667	bestE 0
+pt_uniform	7	83	113	SAT	50.0178	bestE 0
+pt_uniform	7	89	113	SAT	25.8044	bestE 0
+pt_uniform	7	73	113	SAT	13.5623	bestE 0
+pt_uniform	7	71	109	SAT	65.4300	bestE 0
+pt_uniform	7	67	109	SAT	24.0967	bestE 0
+pt_uniform	7	67	103	SAT	4.2381	bestE 0
+pt_uniform	8	167	211	TIMEOUT	300.0032	bestE 1
+pt_uniform	8	181	239	TIMEOUT	300.0069	bestE 1
+pt_uniform	8	137	179	SAT	33.3560	bestE 0
+pt_uniform	8	139	173	TIMEOUT	300.0124	bestE 1
+pt_uniform	8	163	251	TIMEOUT	300.0413	bestE 1
+pt_uniform	8	197	227	TIMEOUT	300.0106	bestE 2
+pt_uniform	8	149	227	SAT	196.2776	bestE 0
+pt_uniform	8	211	251	SAT	257.6366	bestE 0
+pt_uniform	8	199	241	TIMEOUT	300.0379	bestE 1
+pt_uniform	8	151	233	SAT	96.4251	bestE 0
+pt_uniform	8	157	199	TIMEOUT	300.0405	bestE 1
+pt_uniform	8	197	239	TIMEOUT	300.0388	bestE 2
+pt_focused	5	23	29	SAT	0.0177	bestE 0
+pt_focused	5	17	23	SAT	0.0007	bestE 0
+pt_focused	5	19	31	SAT	0.0419	bestE 0
+pt_focused	5	17	31	SAT	0.0020	bestE 0
+pt_focused	5	19	29	SAT	0.0059	bestE 0
+pt_focused	5	29	31	SAT	0.0780	bestE 0
+pt_focused	5	17	19	SAT	0.0092	bestE 0
+pt_focused	5	23	31	SAT	0.0463	bestE 0
+pt_focused	5	17	29	SAT	0.0022	bestE 0
+pt_focused	5	19	23	SAT	0.0086	bestE 0
+pt_focused	6	47	53	SAT	0.1463	bestE 0
+pt_focused	6	59	61	SAT	0.0353	bestE 0
+pt_focused	6	37	47	SAT	0.0068	bestE 0
+pt_focused	6	53	61	SAT	0.1471	bestE 0
+pt_focused	6	37	53	SAT	0.0649	bestE 0
+pt_focused	6	37	61	SAT	0.0689	bestE 0
+pt_focused	6	41	61	SAT	0.0999	bestE 0
+pt_focused	6	37	59	SAT	0.1526	bestE 0
+pt_focused	6	41	47	SAT	0.0202	bestE 0
+pt_focused	6	41	59	SAT	0.0276	bestE 0
+pt_focused	6	47	61	SAT	0.4379	bestE 0
+pt_focused	6	53	59	SAT	0.0519	bestE 0
+pt_focused	7	73	97	SAT	0.0829	bestE 0
+pt_focused	7	89	127	SAT	7.2202	bestE 0
+pt_focused	7	83	89	SAT	0.1320	bestE 0
+pt_focused	7	79	109	SAT	2.0287	bestE 0
+pt_focused	7	83	127	SAT	0.3636	bestE 0
+pt_focused	7	101	103	SAT	0.9281	bestE 0
+pt_focused	7	83	113	SAT	0.6996	bestE 0
+pt_focused	7	89	113	SAT	0.7553	bestE 0
+pt_focused	7	73	113	SAT	0.2818	bestE 0
+pt_focused	7	71	109	SAT	0.3762	bestE 0
+pt_focused	7	67	109	SAT	0.0871	bestE 0
+pt_focused	7	67	103	SAT	0.8028	bestE 0
+pt_focused	8	167	211	SAT	78.5072	bestE 0
+pt_focused	8	181	239	SAT	288.6746	bestE 0
+pt_focused	8	137	179	SAT	0.5256	bestE 0
+pt_focused	8	139	173	SAT	0.5788	bestE 0
+pt_focused	8	163	251	SAT	4.2145	bestE 0
+pt_focused	8	197	227	SAT	1.9005	bestE 0
+pt_focused	8	149	227	SAT	0.8457	bestE 0
+pt_focused	8	211	251	SAT	152.6766	bestE 0
+pt_focused	8	199	241	SAT	33.5637	bestE 0
+pt_focused	8	151	233	SAT	41.8438	bestE 0
+pt_focused	8	157	199	SAT	3.0637	bestE 0
+pt_focused	8	197	239	SAT	3.9555	bestE 0
+pt_focused	9	311	439	TIMEOUT	300.0134	bestE 1
+pt_focused	9	311	397	SAT	50.1858	bestE 0
+pt_focused	9	263	389	SAT	3.3017	bestE 0
+pt_focused	9	263	467	SAT	4.2289	bestE 0
+pt_focused	9	367	463	TIMEOUT	300.0409	bestE 1
+pt_focused	9	317	439	TIMEOUT	300.0498	bestE 1
+pt_focused	9	269	479	SAT	146.7565	bestE 0
+pt_focused	9	401	409	SAT	29.4703	bestE 0
+pt_focused	9	419	431	TIMEOUT	300.0596	bestE 1
+pt_focused	9	313	317	SAT	204.5235	bestE 0
+pt_focused	9	271	439	TIMEOUT	300.0290	bestE 1
+pt_focused	9	379	449	SAT	23.3380	bestE 0
+pt_focused	10	617	839	TIMEOUT	300.0682	bestE 1
+pt_focused	10	613	757	TIMEOUT	300.0358	bestE 1
+pt_focused	10	523	727	SAT	167.7941	bestE 0
+pt_focused	10	769	919	SAT	45.2590	bestE 0
+pt_focused	10	811	877	TIMEOUT	300.0816	bestE 1
+pt_focused	10	631	829	TIMEOUT	300.0561	bestE 1
+pt_focused	10	919	947	TIMEOUT	300.0812	bestE 2
+pt_focused	10	563	617	SAT	124.7021	bestE 0
+pt_focused	10	769	827	SAT	12.4319	bestE 0
+pt_focused	10	719	787	SAT	129.4282	bestE 0
+pt_focused	10	521	1013	SAT	29.4583	bestE 0
+pt_focused	10	881	1009	TIMEOUT	300.0270	bestE 1
+random_factor	5	23	29	SAT	0.0000	evals 19
+random_factor	5	17	23	SAT	0.0000	evals 93
+random_factor	5	19	31	SAT	0.0000	evals 55
+random_factor	5	17	31	SAT	0.0000	evals 38
+random_factor	5	19	29	SAT	0.0000	evals 28
+random_factor	5	29	31	SAT	0.0000	evals 6
+random_factor	5	17	19	SAT	0.0000	evals 66
+random_factor	5	23	31	SAT	0.0000	evals 8
+random_factor	5	17	29	SAT	0.0000	evals 177
+random_factor	5	19	23	SAT	0.0000	evals 34
+random_factor	6	47	53	SAT	0.0000	evals 85
+random_factor	6	59	61	SAT	0.0000	evals 14
+random_factor	6	37	47	SAT	0.0000	evals 38
+random_factor	6	53	61	SAT	0.0000	evals 13
+random_factor	6	37	53	SAT	0.0000	evals 29
+random_factor	6	37	61	SAT	0.0000	evals 62
+random_factor	6	41	61	SAT	0.0000	evals 582
+random_factor	6	37	59	SAT	0.0000	evals 34
+random_factor	6	41	47	SAT	0.0000	evals 30
+random_factor	6	41	59	SAT	0.0000	evals 392
+random_factor	6	47	61	SAT	0.0000	evals 210
+random_factor	6	53	59	SAT	0.0000	evals 173
+random_factor	7	73	97	SAT	0.0000	evals 578
+random_factor	7	89	127	SAT	0.0000	evals 551
+random_factor	7	83	89	SAT	0.0001	evals 3224
+random_factor	7	79	109	SAT	0.0000	evals 304
+random_factor	7	83	127	SAT	0.0000	evals 19
+random_factor	7	101	103	SAT	0.0000	evals 673
+random_factor	7	83	113	SAT	0.0000	evals 24
+random_factor	7	89	113	SAT	0.0000	evals 202
+random_factor	7	73	113	SAT	0.0000	evals 285
+random_factor	7	71	109	SAT	0.0000	evals 317
+random_factor	7	67	109	SAT	0.0000	evals 182
+random_factor	7	67	103	SAT	0.0000	evals 28
+random_factor	8	167	211	SAT	0.0000	evals 1019
+random_factor	8	181	239	SAT	0.0000	evals 261
+random_factor	8	137	179	SAT	0.0000	evals 171
+random_factor	8	139	173	SAT	0.0000	evals 568
+random_factor	8	163	251	SAT	0.0003	evals 10744
+random_factor	8	197	227	SAT	0.0000	evals 22
+random_factor	8	149	227	SAT	0.0001	evals 2170
+random_factor	8	211	251	SAT	0.0000	evals 1311
+random_factor	8	199	241	SAT	0.0000	evals 925
+random_factor	8	151	233	SAT	0.0000	evals 91
+random_factor	8	157	199	SAT	0.0001	evals 5511
+random_factor	8	197	239	SAT	0.0001	evals 2208
+random_factor	9	311	439	SAT	0.0000	evals 344
+random_factor	9	311	397	SAT	0.0009	evals 32902
+random_factor	9	263	389	SAT	0.0002	evals 6507
+random_factor	9	263	467	SAT	0.0007	evals 29493
+random_factor	9	367	463	SAT	0.0007	evals 23151
+random_factor	9	317	439	SAT	0.0002	evals 10826
+random_factor	9	269	479	SAT	0.0001	evals 2469
+random_factor	9	401	409	SAT	0.0001	evals 2960
+random_factor	9	419	431	SAT	0.0001	evals 2669
+random_factor	9	313	317	SAT	0.0001	evals 5082
+random_factor	9	271	439	SAT	0.0001	evals 5951
+random_factor	9	379	449	SAT	0.0003	evals 14390
+random_factor	10	617	839	SAT	0.0011	evals 48731
+random_factor	10	613	757	SAT	0.0003	evals 11368
+random_factor	10	523	727	SAT	0.0003	evals 11443
+random_factor	10	769	919	SAT	0.0012	evals 59504
+random_factor	10	811	877	SAT	0.0001	evals 785
+random_factor	10	631	829	SAT	0.0014	evals 66560
+random_factor	10	919	947	SAT	0.0012	evals 54340
+random_factor	10	563	617	SAT	0.0001	evals 4774
+random_factor	10	769	827	SAT	0.0013	evals 61140
+random_factor	10	719	787	SAT	0.0004	evals 19698
+random_factor	10	521	1013	SAT	0.0004	evals 19325
+random_factor	10	881	1009	SAT	0.0001	evals 4769
+random_factor	11	1913	1979	SAT	0.0073	evals 340574
+random_factor	11	1093	1619	SAT	0.0110	evals 516209
+random_factor	11	1399	1951	SAT	0.0008	evals 35660
+random_factor	11	1423	1783	SAT	0.0024	evals 112041
+random_factor	11	1213	1867	SAT	0.0058	evals 250025
+random_factor	11	1531	1949	SAT	0.0003	evals 13754
+random_factor	11	1301	1481	SAT	0.0126	evals 616620
+random_factor	11	1619	1993	SAT	0.0000	evals 1488
+random_factor	11	1301	1879	SAT	0.0006	evals 27976
+random_factor	11	1823	1867	SAT	0.0002	evals 8918
+random_factor	11	1129	1427	SAT	0.0021	evals 90350
+random_factor	11	1747	1999	SAT	0.0079	evals 386375
+random_factor	12	2333	3391	SAT	0.0015	evals 72965
+random_factor	12	2131	2371	SAT	0.0010	evals 46294
+random_factor	12	3457	3617	SAT	0.0149	evals 289610
+random_factor	12	2539	3169	SAT	0.0280	evals 1292381
+random_factor	12	2069	3719	SAT	0.0308	evals 669763
+random_factor	12	2591	2927	SAT	0.0019	evals 90898
+random_factor	12	2749	3181	SAT	0.0105	evals 502787
+random_factor	12	2111	2309	SAT	0.0140	evals 668439
+random_factor	12	2143	3011	SAT	0.0037	evals 136020
+random_factor	12	2203	2551	SAT	0.0209	evals 812325
+random_factor	12	3343	3943	SAT	0.0157	evals 772208
+random_factor	12	3581	3793	SAT	0.0004	evals 19181
+random_factor	13	7283	7673	SAT	0.0383	evals 1582060
+random_factor	13	4289	6803	SAT	0.0106	evals 501915
+random_factor	13	5099	6469	SAT	0.0264	evals 1275389
+random_factor	13	6529	6709	SAT	0.0224	evals 927498
+random_factor	13	5101	6997	SAT	0.0256	evals 1248555
+random_factor	13	6571	7013	SAT	0.0130	evals 537306
+random_factor	13	7243	7499	SAT	0.0112	evals 534585
+random_factor	13	4231	6257	SAT	0.2160	evals 9334429
+random_factor	13	5231	6269	SAT	0.0478	evals 2317954
+random_factor	13	6911	7951	SAT	0.0911	evals 4459882
+random_factor	13	5743	6653	SAT	0.0820	evals 4007077
+random_factor	13	5393	7459	SAT	0.0045	evals 218866
+random_factor	14	10711	13999	SAT	0.1237	evals 6011076
+random_factor	14	8807	10453	SAT	0.2376	evals 11374907
+random_factor	14	8923	13217	SAT	0.0694	evals 3354950
+random_factor	14	10781	16057	SAT	0.0254	evals 1211530
+random_factor	14	10103	14221	SAT	0.2015	evals 9526764
+random_factor	14	13151	13537	SAT	0.1540	evals 7193478
+random_factor	14	9391	14437	SAT	0.4147	evals 18721938
+random_factor	14	12239	16363	SAT	0.1053	evals 5119424
+random_factor	14	9323	9631	SAT	0.1483	evals 7177561
+random_factor	14	12539	13627	SAT	0.1004	evals 4906315
+random_factor	14	13331	16273	SAT	0.5708	evals 27845206
+random_factor	14	11087	11411	SAT	0.0022	evals 85441
+random_factor	15	23599	30517	SAT	0.3629	evals 17774797
+random_factor	15	25153	25171	SAT	0.0482	evals 2324292
+random_factor	15	24061	25163	SAT	0.2205	evals 9582109
+random_factor	15	29531	31393	SAT	3.9819	evals 181179680
+random_factor	15	29473	29483	SAT	0.0102	evals 495742
+random_factor	15	16729	22051	SAT	1.0855	evals 44853873
+random_factor	15	20663	27329	SAT	1.1021	evals 49414233
+random_factor	15	18973	25457	SAT	0.1417	evals 6673039
+random_factor	15	21491	27197	SAT	0.0626	evals 2814901
+random_factor	15	25261	32441	SAT	0.2502	evals 11794635
+random_factor	15	20749	31657	SAT	2.2003	evals 100586164
+random_factor	15	23537	26347	SAT	1.2184	evals 55787350
+random_factor	16	36319	38713	SAT	0.6425	evals 27969520
+random_factor	16	41057	44641	SAT	3.5882	evals 171363163
+random_factor	16	42853	56633	SAT	4.0899	evals 197342775
+random_factor	16	35407	38971	SAT	10.9930	evals 516206912
+random_factor	16	45307	55903	SAT	0.7398	evals 32873061
+random_factor	16	38669	61153	SAT	4.9677	evals 241705252
+random_factor	16	47491	48571	SAT	1.8818	evals 85776952
+random_factor	16	46477	65179	SAT	9.8013	evals 471133139
+random_factor	16	40361	52999	SAT	1.2531	evals 57321410
+random_factor	16	60811	62927	SAT	0.3003	evals 14317910
+random_factor	16	41809	62653	SAT	3.9595	evals 184194078
+random_factor	16	38047	55439	SAT	6.1483	evals 299325658
+random_factor	17	79319	98953	SAT	1.0748	evals 52680277
+random_factor	17	67927	81223	SAT	1.5491	evals 70063246
+random_factor	17	85621	109433	SAT	1.4331	evals 68925117
+random_factor	17	67679	96787	SAT	19.6999	evals 933893537
+random_factor	17	69997	115963	SAT	31.4841	evals 1506986163
+random_factor	17	66293	118673	SAT	10.4790	evals 507892578
+random_factor	17	70199	126743	SAT	5.6933	evals 269312136
+random_factor	17	70079	71699	SAT	1.4546	evals 67608158
+random_factor	17	92353	102121	SAT	37.4993	evals 1754372139
+random_factor	17	103141	127321	SAT	5.0622	evals 246072043
+random_factor	17	75277	99529	SAT	12.6428	evals 610160598
+random_factor	17	82613	127711	SAT	20.7372	evals 937871351
+random_factor	18	229963	230567	SAT	41.2631	evals 1997755291
+random_factor	18	194683	254663	SAT	40.4130	evals 1953265829
+random_factor	18	197147	232051	SAT	100.1503	evals 4827355385
+random_factor	18	157721	202823	SAT	1.0944	evals 52659813
+random_factor	18	194659	236813	SAT	4.4144	evals 209041746
+random_factor	18	140551	211583	SAT	42.6605	evals 2051183522
+random_factor	18	190271	219529	SAT	8.1908	evals 396971766
+random_factor	18	159119	226547	SAT	8.7292	evals 422779793
+random_factor	18	187513	192971	SAT	50.2890	evals 2416152698
+random_factor	18	172307	180751	SAT	109.9573	evals 5237947875
+random_factor	18	157679	250967	SAT	41.6698	evals 2004288888
+random_factor	18	148457	192677	SAT	6.7688	evals 319403980

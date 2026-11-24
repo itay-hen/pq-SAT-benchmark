@@ -1,0 +1,434 @@
+=== factor d=5: 4 training instances
+  T_max = 2.125  (tau_int at grid: 0.15:0.5, 0.18:0.5, 0.22:0.77, 0.26:18, 0.32:11, 0.39:56, 0.47:22, 0.56:9.1, 0.68:4.8, 0.82:3.4, 1.00:2.4, 1.20:1.8, 1.46:1.3, 1.76:1, 2.13:0.83, 2.57:0.72, 3.10:0.63, 3.75:0.59, 4.53:0.57, 5.48:0.56, 6.62:0.53, 8.00:0.53)
+  T* (P0 = 0.5, exact) = 0.951; per instance [0.953, 0.951, 0.951, 1.019]
+  T_min 0.570: M0 4, round trips 60881, min acc 0.624, p0(T_min) 0.816, training median work 0 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.761: M0 4, round trips 76239, min acc 0.688, p0(T_min) 0.656, training median work 0 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.951: M0 4, round trips 92606, min acc 0.747, p0(T_min) 0.511, training median work 2 replica-sweeps, time 0 s (12/12 solved)
+  T_min 1.188: M0 4, round trips 111623, min acc 0.819, p0(T_min) 0.379, training median work 0 replica-sweeps, time 0 s (12/12 solved)
+  chosen T_min = 0.570  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 14075, min acc 0.560, p0(Tmin) 0.815, cost/rt 17.1
+    M=3 iter 1: round trips 27906, min acc 0.567, p0(Tmin) 0.813, cost/rt 17.2
+    M=3 iter 2: round trips 55604, min acc 0.570, p0(Tmin) 0.819, cost/rt 17.3
+    M=3 iter 3: round trips 55429, min acc 0.572, p0(Tmin) 0.816, cost/rt 17.3
+    M=3 iter 4: round trips 55520, min acc 0.576, p0(Tmin) 0.819, cost/rt 17.3
+    M=4 iter 0: round trips 15269, min acc 0.669, p0(Tmin) 0.818, cost/rt 21
+    M=4 iter 1: round trips 30724, min acc 0.658, p0(Tmin) 0.818, cost/rt 20.8
+    M=4 iter 2: round trips 61147, min acc 0.642, p0(Tmin) 0.819, cost/rt 20.9
+    M=4 iter 3: round trips 60733, min acc 0.634, p0(Tmin) 0.821, cost/rt 21.1
+    M=4 iter 4: round trips 60881, min acc 0.624, p0(Tmin) 0.816, cost/rt 21
+    M=6 iter 0: round trips 16860, min acc 0.797, p0(Tmin) 0.816, cost/rt 28.5
+    M=6 iter 1: round trips 33644, min acc 0.785, p0(Tmin) 0.816, cost/rt 28.5
+    M=6 iter 2: round trips 66716, min acc 0.771, p0(Tmin) 0.819, cost/rt 28.8
+    M=6 iter 3: round trips 66588, min acc 0.762, p0(Tmin) 0.818, cost/rt 28.8
+    M=6 iter 4: round trips 66236, min acc 0.757, p0(Tmin) 0.816, cost/rt 29
+    M=8 iter 0: round trips 17903, min acc 0.855, p0(Tmin) 0.815, cost/rt 35.7
+    M=8 iter 1: round trips 35021, min acc 0.842, p0(Tmin) 0.819, cost/rt 36.5
+    M=8 iter 2: round trips 70327, min acc 0.834, p0(Tmin) 0.818, cost/rt 36.4
+    M=8 iter 3: round trips 70013, min acc 0.827, p0(Tmin) 0.817, cost/rt 36.6
+    M=8 iter 4: round trips 69317, min acc 0.816, p0(Tmin) 0.816, cost/rt 36.9
+  chosen M = 3; temperatures 0.5704, 1.075, 2.125
+  swap acceptance 0.58, 0.58
+  flow f(T)       1.00, 0.48, 0.00
+=== factor d=6: 4 training instances
+  T_max = 2.125  (tau_int at grid: 0.15:1.2e+03, 0.18:68, 0.22:3e+03, 0.26:1.5e+02, 0.32:1.2e+03, 0.39:0.5, 0.47:1.2e+02, 0.56:1.4e+02, 0.68:49, 0.82:22, 1.00:10, 1.20:4.9, 1.46:2.3, 1.76:1.4, 2.13:0.93, 2.57:0.71, 3.10:0.61, 3.75:0.57, 4.53:0.53, 5.48:0.51, 6.62:0.51, 8.00:0.52)
+  T* (P0 = 0.5, exact) = 0.787; per instance [0.855, 0.894, 0.787, 0.794]
+  T_min 0.472: M0 4, round trips 29274, min acc 0.555, p0(T_min) 0.883, training median work 16 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.629: M0 4, round trips 44999, min acc 0.605, p0(T_min) 0.731, training median work 6 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.787: M0 4, round trips 63483, min acc 0.664, p0(T_min) 0.552, training median work 6 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.984: M0 4, round trips 86138, min acc 0.732, p0(T_min) 0.368, training median work 10 replica-sweeps, time 0 s (12/12 solved)
+  chosen T_min = 0.629  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 9868, min acc 0.448, p0(Tmin) 0.735, cost/rt 24.3
+    M=3 iter 1: round trips 20135, min acc 0.471, p0(Tmin) 0.723, cost/rt 23.8
+    M=3 iter 2: round trips 40301, min acc 0.483, p0(Tmin) 0.721, cost/rt 23.8
+    M=3 iter 3: round trips 40114, min acc 0.497, p0(Tmin) 0.726, cost/rt 23.9
+    M=3 iter 4: round trips 39959, min acc 0.505, p0(Tmin) 0.725, cost/rt 24
+    M=4 iter 0: round trips 11179, min acc 0.626, p0(Tmin) 0.739, cost/rt 28.6
+    M=4 iter 1: round trips 22816, min acc 0.636, p0(Tmin) 0.716, cost/rt 28.1
+    M=4 iter 2: round trips 45431, min acc 0.620, p0(Tmin) 0.722, cost/rt 28.2
+    M=4 iter 3: round trips 44912, min acc 0.612, p0(Tmin) 0.724, cost/rt 28.5
+    M=4 iter 4: round trips 44999, min acc 0.605, p0(Tmin) 0.731, cost/rt 28.4
+    M=6 iter 0: round trips 12648, min acc 0.753, p0(Tmin) 0.732, cost/rt 38
+    M=6 iter 1: round trips 24995, min acc 0.759, p0(Tmin) 0.731, cost/rt 38.4
+    M=6 iter 2: round trips 49818, min acc 0.757, p0(Tmin) 0.731, cost/rt 38.5
+    M=6 iter 3: round trips 49768, min acc 0.750, p0(Tmin) 0.727, cost/rt 38.6
+    M=6 iter 4: round trips 49607, min acc 0.747, p0(Tmin) 0.733, cost/rt 38.7
+    M=8 iter 0: round trips 13539, min acc 0.827, p0(Tmin) 0.722, cost/rt 47.3
+    M=8 iter 1: round trips 26827, min acc 0.821, p0(Tmin) 0.724, cost/rt 47.7
+    M=8 iter 2: round trips 53042, min acc 0.821, p0(Tmin) 0.729, cost/rt 48.3
+    M=8 iter 3: round trips 52922, min acc 0.818, p0(Tmin) 0.724, cost/rt 48.4
+    M=8 iter 4: round trips 52472, min acc 0.812, p0(Tmin) 0.728, cost/rt 48.8
+  chosen M = 3; temperatures 0.6295, 1.078, 2.125
+  swap acceptance 0.51, 0.54
+  flow f(T)       1.00, 0.45, 0.00
+=== factor d=7: 4 training instances
+  T_max = 2.125  (tau_int at grid: 0.15:0.5, 0.18:1.8e+02, 0.22:3.9e+02, 0.26:2.8e+03, 0.32:0.71, 0.39:5.6e+02, 0.47:1.1e+03, 0.56:3.7e+02, 0.68:1e+02, 0.82:39, 1.00:14, 1.20:5.6, 1.46:2.4, 1.76:1.3, 2.13:0.91, 2.57:0.7, 3.10:0.6, 3.75:0.55, 4.53:0.54, 5.48:0.53, 6.62:0.52, 8.00:0.51)
+  T* (P0 = 0.5, exact) = 0.641; per instance [0.641, 0.69, 0.659, 0.652]
+  T_min 0.385: M0 4, round trips 17323, min acc 0.487, p0(T_min) 0.888, training median work 40 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.513: M0 4, round trips 29497, min acc 0.540, p0(T_min) 0.717, training median work 30 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.641: M0 4, round trips 45862, min acc 0.599, p0(T_min) 0.523, training median work 18 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.802: M0 4, round trips 67253, min acc 0.672, p0(T_min) 0.330, training median work 58 replica-sweeps, time 0 s (12/12 solved)
+  chosen T_min = 0.641  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 10020, min acc 0.400, p0(Tmin) 0.528, cost/rt 24
+    M=3 iter 1: round trips 20115, min acc 0.420, p0(Tmin) 0.521, cost/rt 23.9
+    M=3 iter 2: round trips 40382, min acc 0.437, p0(Tmin) 0.524, cost/rt 23.8
+    M=3 iter 3: round trips 40161, min acc 0.453, p0(Tmin) 0.524, cost/rt 23.9
+    M=3 iter 4: round trips 40036, min acc 0.464, p0(Tmin) 0.529, cost/rt 24
+    M=4 iter 0: round trips 11426, min acc 0.554, p0(Tmin) 0.527, cost/rt 28
+    M=4 iter 1: round trips 22890, min acc 0.588, p0(Tmin) 0.528, cost/rt 28
+    M=4 iter 2: round trips 45749, min acc 0.613, p0(Tmin) 0.526, cost/rt 28
+    M=4 iter 3: round trips 45791, min acc 0.608, p0(Tmin) 0.526, cost/rt 28
+    M=4 iter 4: round trips 45862, min acc 0.599, p0(Tmin) 0.523, cost/rt 27.9
+    M=6 iter 0: round trips 12798, min acc 0.721, p0(Tmin) 0.530, cost/rt 37.5
+    M=6 iter 1: round trips 25752, min acc 0.745, p0(Tmin) 0.526, cost/rt 37.3
+    M=6 iter 2: round trips 51180, min acc 0.752, p0(Tmin) 0.523, cost/rt 37.5
+    M=6 iter 3: round trips 50877, min acc 0.746, p0(Tmin) 0.525, cost/rt 37.7
+    M=6 iter 4: round trips 50662, min acc 0.740, p0(Tmin) 0.527, cost/rt 37.9
+    M=8 iter 0: round trips 13473, min acc 0.798, p0(Tmin) 0.531, cost/rt 47.5
+    M=8 iter 1: round trips 27370, min acc 0.816, p0(Tmin) 0.526, cost/rt 46.8
+    M=8 iter 2: round trips 54018, min acc 0.814, p0(Tmin) 0.529, cost/rt 47.4
+    M=8 iter 3: round trips 54018, min acc 0.812, p0(Tmin) 0.527, cost/rt 47.4
+    M=8 iter 4: round trips 53726, min acc 0.808, p0(Tmin) 0.524, cost/rt 47.6
+  chosen M = 3; temperatures 0.6414, 1.063, 2.125
+  swap acceptance 0.46, 0.53
+  flow f(T)       1.00, 0.43, 0.00
+=== factor d=8: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:2e+03, 0.18:79, 0.22:3.2e+03, 0.26:2.8e+03, 0.32:3e+03, 0.39:1.1e+02, 0.47:7.2e+02, 0.56:1.7e+02, 0.68:55, 0.82:23, 1.00:8.2, 1.20:3, 1.46:1.5, 1.76:0.93, 2.13:0.72, 2.57:0.62, 3.10:0.58, 3.75:0.55, 4.53:0.53, 5.48:0.54, 6.62:0.53, 8.00:0.51)
+  T* (P0 = 0.5, exact) = 0.545; per instance [0.686, 0.545, 0.545, 0.65]
+  T_min 0.327: M0 4, round trips 10223, min acc 0.432, p0(T_min) 0.921, training median work 152 replica-sweeps, time 5e-05 s (12/12 solved)
+  T_min 0.436: M0 4, round trips 18130, min acc 0.498, p0(T_min) 0.794, training median work 148 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.545: M0 4, round trips 31254, min acc 0.552, p0(T_min) 0.611, training median work 64 replica-sweeps, time 0 s (12/12 solved)
+  T_min 0.681: M0 4, round trips 52737, min acc 0.629, p0(T_min) 0.396, training median work 136 replica-sweeps, time 0 s (12/12 solved)
+  chosen T_min = 0.545  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 6545, min acc 0.322, p0(Tmin) 0.611, cost/rt 36.7
+    M=3 iter 1: round trips 12931, min acc 0.348, p0(Tmin) 0.614, cost/rt 37.1
+    M=3 iter 2: round trips 26182, min acc 0.372, p0(Tmin) 0.609, cost/rt 36.7
+    M=3 iter 3: round trips 25895, min acc 0.393, p0(Tmin) 0.618, cost/rt 37.1
+    M=3 iter 4: round trips 26152, min acc 0.412, p0(Tmin) 0.618, cost/rt 36.7
+    M=4 iter 0: round trips 7753, min acc 0.506, p0(Tmin) 0.623, cost/rt 41.3
+    M=4 iter 1: round trips 15620, min acc 0.544, p0(Tmin) 0.609, cost/rt 41
+    M=4 iter 2: round trips 31114, min acc 0.556, p0(Tmin) 0.615, cost/rt 41.1
+    M=4 iter 3: round trips 31288, min acc 0.554, p0(Tmin) 0.614, cost/rt 40.9
+    M=4 iter 4: round trips 31254, min acc 0.552, p0(Tmin) 0.611, cost/rt 41
+    M=6 iter 0: round trips 9054, min acc 0.685, p0(Tmin) 0.618, cost/rt 53
+    M=6 iter 1: round trips 18373, min acc 0.702, p0(Tmin) 0.609, cost/rt 52.3
+    M=6 iter 2: round trips 36140, min acc 0.709, p0(Tmin) 0.619, cost/rt 53.1
+    M=6 iter 3: round trips 36212, min acc 0.716, p0(Tmin) 0.612, cost/rt 53
+    M=6 iter 4: round trips 36058, min acc 0.706, p0(Tmin) 0.614, cost/rt 53.2
+    M=8 iter 0: round trips 10009, min acc 0.763, p0(Tmin) 0.614, cost/rt 63.9
+    M=8 iter 1: round trips 19731, min acc 0.784, p0(Tmin) 0.621, cost/rt 64.9
+    M=8 iter 2: round trips 39498, min acc 0.786, p0(Tmin) 0.619, cost/rt 64.8
+    M=8 iter 3: round trips 39015, min acc 0.791, p0(Tmin) 0.622, cost/rt 65.6
+    M=8 iter 4: round trips 39421, min acc 0.780, p0(Tmin) 0.611, cost/rt 64.9
+  chosen M = 3; temperatures 0.5451, 0.8845, 1.759
+  swap acceptance 0.41, 0.44
+  flow f(T)       1.00, 0.43, 0.00
+=== factor d=9: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:0.5, 0.18:4.3e+03, 0.22:5.2e+03, 0.26:2.8e+03, 0.32:2.6e+03, 0.39:2.8e+03, 0.47:2.4e+03, 0.56:7.7e+02, 0.68:96, 0.82:19, 1.00:6.5, 1.20:3, 1.46:1.4, 1.76:0.93, 2.13:0.73, 2.57:0.62, 3.10:0.57, 3.75:0.56, 4.53:0.53, 5.48:0.53, 6.62:0.53, 8.00:0.52)
+  T* (P0 = 0.5, exact) = 0.452; per instance [0.493, 0.452, 0.55, 0.57]
+  T_min 0.271: M0 4, round trips 4987, min acc 0.328, p0(T_min) 0.925, training median work 480 replica-sweeps, time 0.00015 s (12/12 solved)
+  T_min 0.362: M0 4, round trips 9279, min acc 0.414, p0(T_min) 0.799, training median work 220 replica-sweeps, time 5e-05 s (12/12 solved)
+  T_min 0.452: M0 4, round trips 17128, min acc 0.490, p0(T_min) 0.631, training median work 412 replica-sweeps, time 0.00015 s (12/12 solved)
+  T_min 0.566: M0 4, round trips 32645, min acc 0.556, p0(T_min) 0.411, training median work 546 replica-sweeps, time 0.0002 s (12/12 solved)
+  chosen T_min = 0.362  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 1813, min acc 0.220, p0(Tmin) 0.746, cost/rt 132
+    M=3 iter 1: round trips 3706, min acc 0.263, p0(Tmin) 0.779, cost/rt 130
+    M=3 iter 2: round trips 7128, min acc 0.260, p0(Tmin) 0.796, cost/rt 135
+    M=3 iter 3: round trips 7221, min acc 0.232, p0(Tmin) 0.791, cost/rt 133
+    M=3 iter 4: round trips 6947, min acc 0.224, p0(Tmin) 0.809, cost/rt 138
+    M=4 iter 0: round trips 2317, min acc 0.362, p0(Tmin) 0.792, cost/rt 138
+    M=4 iter 1: round trips 4721, min acc 0.393, p0(Tmin) 0.795, cost/rt 136
+    M=4 iter 2: round trips 9644, min acc 0.415, p0(Tmin) 0.783, cost/rt 133
+    M=4 iter 3: round trips 9036, min acc 0.419, p0(Tmin) 0.817, cost/rt 142
+    M=4 iter 4: round trips 9279, min acc 0.414, p0(Tmin) 0.799, cost/rt 138
+    M=6 iter 0: round trips 3161, min acc 0.582, p0(Tmin) 0.777, cost/rt 152
+    M=6 iter 1: round trips 6374, min acc 0.604, p0(Tmin) 0.769, cost/rt 151
+    M=6 iter 2: round trips 12315, min acc 0.627, p0(Tmin) 0.792, cost/rt 156
+    M=6 iter 3: round trips 12069, min acc 0.628, p0(Tmin) 0.788, cost/rt 159
+    M=6 iter 4: round trips 11928, min acc 0.614, p0(Tmin) 0.789, cost/rt 161
+    M=8 iter 0: round trips 3246, min acc 0.676, p0(Tmin) 0.817, cost/rt 197
+    M=8 iter 1: round trips 6950, min acc 0.712, p0(Tmin) 0.790, cost/rt 184
+    M=8 iter 2: round trips 14218, min acc 0.730, p0(Tmin) 0.783, cost/rt 180
+    M=8 iter 3: round trips 14160, min acc 0.712, p0(Tmin) 0.794, cost/rt 181
+    M=8 iter 4: round trips 13922, min acc 0.698, p0(Tmin) 0.795, cost/rt 184
+  chosen M = 4; temperatures 0.362, 0.5856, 0.8833, 1.759
+  swap acceptance 0.54, 0.46, 0.41
+  flow f(T)       1.00, 0.66, 0.25, 0.00
+=== factor d=10: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:3.8, 0.18:2.5e+02, 0.22:4.6e+03, 0.26:3.8e+03, 0.32:4.8e+03, 0.39:2.6e+03, 0.47:6.1e+03, 0.56:1.2e+03, 0.68:3.4e+02, 0.82:28, 1.00:9.6, 1.20:2.3, 1.46:1.2, 1.76:0.83, 2.13:0.65, 2.57:0.58, 3.10:0.54, 3.75:0.53, 4.53:0.53, 5.48:0.52, 6.62:0.53, 8.00:0.5)
+  T* (P0 = 0.5, exact) = 0.459; per instance [0.459, 0.503, 0.593, 0.479]
+  T_min 0.276: M0 4, round trips 2489, min acc 0.276, p0(T_min) 0.947, training median work 1344 replica-sweeps, time 0.00045 s (12/12 solved)
+  T_min 0.367: M0 4, round trips 6843, min acc 0.364, p0(T_min) 0.796, training median work 1070 replica-sweeps, time 0.0004 s (12/12 solved)
+  T_min 0.459: M0 4, round trips 14750, min acc 0.470, p0(T_min) 0.643, training median work 1530 replica-sweeps, time 0.0005 s (12/12 solved)
+  T_min 0.574: M0 4, round trips 31776, min acc 0.542, p0(T_min) 0.381, training median work 644 replica-sweeps, time 0.00025 s (12/12 solved)
+  chosen T_min = 0.367  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 1224, min acc 0.154, p0(Tmin) 0.722, cost/rt 196
+    M=3 iter 1: round trips 2387, min acc 0.214, p0(Tmin) 0.798, cost/rt 201
+    M=3 iter 2: round trips 4554, min acc 0.226, p0(Tmin) 0.808, cost/rt 211
+    M=3 iter 3: round trips 5001, min acc 0.203, p0(Tmin) 0.757, cost/rt 192
+    M=3 iter 4: round trips 4893, min acc 0.184, p0(Tmin) 0.807, cost/rt 196
+    M=4 iter 0: round trips 1633, min acc 0.337, p0(Tmin) 0.737, cost/rt 196
+    M=4 iter 1: round trips 3103, min acc 0.357, p0(Tmin) 0.849, cost/rt 206
+    M=4 iter 2: round trips 6953, min acc 0.380, p0(Tmin) 0.776, cost/rt 184
+    M=4 iter 3: round trips 6824, min acc 0.395, p0(Tmin) 0.791, cost/rt 188
+    M=4 iter 4: round trips 6843, min acc 0.364, p0(Tmin) 0.796, cost/rt 187
+    M=6 iter 0: round trips 2231, min acc 0.514, p0(Tmin) 0.806, cost/rt 215
+    M=6 iter 1: round trips 4365, min acc 0.574, p0(Tmin) 0.798, cost/rt 220
+    M=6 iter 2: round trips 9049, min acc 0.614, p0(Tmin) 0.801, cost/rt 212
+    M=6 iter 3: round trips 8885, min acc 0.579, p0(Tmin) 0.814, cost/rt 216
+    M=6 iter 4: round trips 8728, min acc 0.544, p0(Tmin) 0.802, cost/rt 220
+    M=8 iter 0: round trips 2677, min acc 0.643, p0(Tmin) 0.779, cost/rt 239
+    M=8 iter 1: round trips 5228, min acc 0.683, p0(Tmin) 0.797, cost/rt 245
+    M=8 iter 2: round trips 10077, min acc 0.707, p0(Tmin) 0.825, cost/rt 254
+    M=8 iter 3: round trips 10329, min acc 0.690, p0(Tmin) 0.796, cost/rt 248
+    M=8 iter 4: round trips 9979, min acc 0.657, p0(Tmin) 0.812, cost/rt 257
+  chosen M = 4; temperatures 0.3674, 0.5652, 0.8434, 1.759
+  swap acceptance 0.52, 0.42, 0.36
+  flow f(T)       1.00, 0.66, 0.23, 0.00
+=== factor d=11: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:1.6, 0.18:1.1, 0.22:8.2, 0.26:1.6e+03, 0.32:6.3e+02, 0.39:1.4e+03, 0.47:1.1e+03, 0.56:1.4e+03, 0.68:2.6e+02, 0.82:32, 1.00:7.4, 1.20:2.1, 1.46:1.1, 1.76:0.8, 2.13:0.66, 2.57:0.6, 3.10:0.56, 3.75:0.55, 4.53:0.54, 5.48:0.53, 6.62:0.53, 8.00:0.52)
+  T* (P0 = 0.5, exact) = 0.473; per instance [0.508, 0.497, 0.473, 0.482]
+  T_min 0.284: M0 4, round trips 1884, min acc 0.237, p0(T_min) 0.913, training median work 4106 replica-sweeps, time 0.0013 s (12/12 solved)
+  T_min 0.379: M0 4, round trips 6106, min acc 0.328, p0(T_min) 0.770, training median work 6338 replica-sweeps, time 0.0022 s (12/12 solved)
+  T_min 0.473: M0 4, round trips 15166, min acc 0.461, p0(T_min) 0.590, training median work 4120 replica-sweeps, time 0.00135 s (12/12 solved)
+  T_min 0.591: M0 4, round trips 34267, min acc 0.552, p0(T_min) 0.279, training median work 2228 replica-sweeps, time 0.0008 s (12/12 solved)
+  chosen T_min = 0.284  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 241, min acc 0.108, p0(Tmin) 0.975, cost/rt 996
+    M=3 iter 1: round trips 589, min acc 0.146, p0(Tmin) 0.951, cost/rt 815
+    M=3 iter 2: round trips 1275, min acc 0.123, p0(Tmin) 0.885, cost/rt 753
+    M=3 iter 3: round trips 1302, min acc 0.096, p0(Tmin) 0.945, cost/rt 737
+    M=3 iter 4: round trips 1147, min acc 0.085, p0(Tmin) 0.947, cost/rt 837
+    M=4 iter 0: round trips 419, min acc 0.199, p0(Tmin) 0.959, cost/rt 764
+    M=4 iter 1: round trips 977, min acc 0.269, p0(Tmin) 0.910, cost/rt 655
+    M=4 iter 2: round trips 1755, min acc 0.285, p0(Tmin) 0.932, cost/rt 729
+    M=4 iter 3: round trips 1863, min acc 0.270, p0(Tmin) 0.911, cost/rt 687
+    M=4 iter 4: round trips 1884, min acc 0.237, p0(Tmin) 0.913, cost/rt 679
+    M=6 iter 0: round trips 583, min acc 0.443, p0(Tmin) 0.954, cost/rt 823
+    M=6 iter 1: round trips 1378, min acc 0.512, p0(Tmin) 0.935, cost/rt 697
+    M=6 iter 2: round trips 2494, min acc 0.470, p0(Tmin) 0.941, cost/rt 770
+    M=6 iter 3: round trips 2540, min acc 0.407, p0(Tmin) 0.914, cost/rt 756
+    M=6 iter 4: round trips 2533, min acc 0.368, p0(Tmin) 0.931, cost/rt 758
+    M=8 iter 0: round trips 694, min acc 0.559, p0(Tmin) 0.944, cost/rt 922
+    M=8 iter 1: round trips 1487, min acc 0.628, p0(Tmin) 0.936, cost/rt 861
+    M=8 iter 2: round trips 2856, min acc 0.565, p0(Tmin) 0.947, cost/rt 896
+    M=8 iter 3: round trips 3082, min acc 0.502, p0(Tmin) 0.936, cost/rt 831
+    M=8 iter 4: round trips 2716, min acc 0.455, p0(Tmin) 0.954, cost/rt 943
+  chosen M = 4; temperatures 0.2839, 0.4916, 0.7358, 1.759
+  swap acceptance 0.52, 0.38, 0.24
+  flow f(T)       1.00, 0.69, 0.19, 0.00
+=== factor d=12: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:5.1e+02, 0.18:1.1e+02, 0.22:2.9e+03, 0.26:1.3e+03, 0.32:3.6e+03, 0.39:3.6e+03, 0.47:5.6e+03, 0.56:2.8e+03, 0.68:2.4e+02, 0.82:47, 1.00:7.9, 1.20:2.2, 1.46:1.1, 1.76:0.75, 2.13:0.63, 2.57:0.57, 3.10:0.53, 3.75:0.53, 4.53:0.53, 5.48:0.52, 6.62:0.52, 8.00:0.52)
+  T* (P0 = 0.5, exact) = 0.441; per instance [0.457, 0.457, 0.441, 0.452]
+  T_min 0.264: M0 4, round trips 855, min acc 0.201, p0(T_min) 0.940, training median work 1.454e+04 replica-sweeps, time 0.0055 s (12/12 solved)
+  T_min 0.352: M0 4, round trips 3531, min acc 0.273, p0(T_min) 0.756, training median work 6678 replica-sweeps, time 0.00215 s (12/12 solved)
+  T_min 0.441: M0 4, round trips 9813, min acc 0.390, p0(T_min) 0.601, training median work 5422 replica-sweeps, time 0.0026 s (12/12 solved)
+  T_min 0.551: M0 4, round trips 25937, min acc 0.517, p0(T_min) 0.260, training median work 2372 replica-sweeps, time 0.0009 s (12/12 solved)
+  chosen T_min = 0.441  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 1096, min acc 0.101, p0(Tmin) 0.672, cost/rt 219
+    M=3 iter 1: round trips 3141, min acc 0.155, p0(Tmin) 0.618, cost/rt 153
+    M=3 iter 2: round trips 7119, min acc 0.193, p0(Tmin) 0.506, cost/rt 135
+    M=3 iter 3: round trips 7509, min acc 0.227, p0(Tmin) 0.487, cost/rt 128
+    M=3 iter 4: round trips 7358, min acc 0.220, p0(Tmin) 0.560, cost/rt 130
+    M=4 iter 0: round trips 2458, min acc 0.278, p0(Tmin) 0.549, cost/rt 130
+    M=4 iter 1: round trips 5110, min acc 0.356, p0(Tmin) 0.444, cost/rt 125
+    M=4 iter 2: round trips 10732, min acc 0.397, p0(Tmin) 0.488, cost/rt 119
+    M=4 iter 3: round trips 9170, min acc 0.376, p0(Tmin) 0.631, cost/rt 140
+    M=4 iter 4: round trips 9813, min acc 0.390, p0(Tmin) 0.601, cost/rt 130
+    M=6 iter 0: round trips 3168, min acc 0.526, p0(Tmin) 0.519, cost/rt 152
+    M=6 iter 1: round trips 6948, min acc 0.572, p0(Tmin) 0.523, cost/rt 138
+    M=6 iter 2: round trips 12937, min acc 0.599, p0(Tmin) 0.565, cost/rt 148
+    M=6 iter 3: round trips 14144, min acc 0.619, p0(Tmin) 0.512, cost/rt 136
+    M=6 iter 4: round trips 14147, min acc 0.590, p0(Tmin) 0.486, cost/rt 136
+    M=8 iter 0: round trips 3596, min acc 0.632, p0(Tmin) 0.570, cost/rt 178
+    M=8 iter 1: round trips 8324, min acc 0.685, p0(Tmin) 0.521, cost/rt 154
+    M=8 iter 2: round trips 15687, min acc 0.711, p0(Tmin) 0.541, cost/rt 163
+    M=8 iter 3: round trips 14967, min acc 0.690, p0(Tmin) 0.555, cost/rt 171
+    M=8 iter 4: round trips 14840, min acc 0.673, p0(Tmin) 0.531, cost/rt 173
+  chosen M = 4; temperatures 0.4405, 0.6131, 0.8979, 1.759
+  swap acceptance 0.44, 0.43, 0.39
+  flow f(T)       1.00, 0.63, 0.22, 0.00
+=== factor d=13: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:1.2e+02, 0.18:6.2e+02, 0.22:1.7e+03, 0.26:2.2e+03, 0.32:7.4e+02, 0.39:3.9e+03, 0.47:8.9e+02, 0.56:2.2e+02, 0.68:78, 0.82:27, 1.00:6.4, 1.20:2.4, 1.46:1.1, 1.76:0.75, 2.13:0.62, 2.57:0.56, 3.10:0.55, 3.75:0.53, 4.53:0.51, 5.48:0.51, 6.62:0.52, 8.00:0.52)
+  T* (P0 = 0.5, exact) = 0.430; per instance [0.487, 0.445, 0.461, 0.43]
+  T_min 0.258: M0 6, round trips 1402, min acc 0.262, p0(T_min) 0.820, training median work 4.354e+04 replica-sweeps, time 0.0181 s (12/12 solved)
+  T_min 0.344: M0 4, round trips 3550, min acc 0.252, p0(T_min) 0.617, training median work 4.035e+04 replica-sweeps, time 0.0158 s (12/12 solved)
+  T_min 0.430: M0 4, round trips 7314, min acc 0.357, p0(T_min) 0.688, training median work 3.151e+04 replica-sweeps, time 0.0165 s (12/12 solved)
+  T_min 0.537: M0 4, round trips 23585, min acc 0.491, p0(T_min) 0.252, training median work 2.677e+04 replica-sweeps, time 0.0106 s (12/12 solved)
+  chosen T_min = 0.430  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 1381, min acc 0.107, p0(Tmin) 0.666, cost/rt 174
+    M=3 iter 1: round trips 2097, min acc 0.096, p0(Tmin) 0.684, cost/rt 229
+    M=3 iter 2: round trips 5952, min acc 0.177, p0(Tmin) 0.575, cost/rt 161
+    M=3 iter 3: round trips 6985, min acc 0.207, p0(Tmin) 0.409, cost/rt 137
+    M=3 iter 4: round trips 6547, min acc 0.181, p0(Tmin) 0.499, cost/rt 147
+    M=4 iter 0: round trips 3132, min acc 0.318, p0(Tmin) 0.214, cost/rt 102
+    M=4 iter 1: round trips 5016, min acc 0.295, p0(Tmin) 0.437, cost/rt 128
+    M=4 iter 2: round trips 7470, min acc 0.311, p0(Tmin) 0.595, cost/rt 171
+    M=4 iter 3: round trips 7522, min acc 0.357, p0(Tmin) 0.641, cost/rt 170
+    M=4 iter 4: round trips 7314, min acc 0.357, p0(Tmin) 0.688, cost/rt 175
+    M=6 iter 0: round trips 3731, min acc 0.475, p0(Tmin) 0.292, cost/rt 129
+    M=6 iter 1: round trips 5833, min acc 0.550, p0(Tmin) 0.559, cost/rt 165
+    M=6 iter 2: round trips 15041, min acc 0.582, p0(Tmin) 0.402, cost/rt 128
+    M=6 iter 3: round trips 12595, min acc 0.600, p0(Tmin) 0.532, cost/rt 152
+    M=6 iter 4: round trips 13752, min acc 0.573, p0(Tmin) 0.453, cost/rt 140
+    M=8 iter 0: round trips 3751, min acc 0.615, p0(Tmin) 0.490, cost/rt 171
+    M=8 iter 1: round trips 6816, min acc 0.643, p0(Tmin) 0.577, cost/rt 188
+    M=8 iter 2: round trips 14288, min acc 0.678, p0(Tmin) 0.559, cost/rt 179
+    M=8 iter 3: round trips 14723, min acc 0.672, p0(Tmin) 0.543, cost/rt 174
+    M=8 iter 4: round trips 12868, min acc 0.656, p0(Tmin) 0.664, cost/rt 199
+  chosen M = 6; temperatures 0.43, 0.5252, 0.6376, 0.7972, 1.101, 1.759
+  swap acceptance 0.62, 0.65, 0.65, 0.60, 0.57
+  flow f(T)       1.00, 0.77, 0.53, 0.32, 0.14, 0.00
+=== factor d=14: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:0.5, 0.18:4.7e+03, 0.22:1.8e+03, 0.26:2.5e+02, 0.32:5.6e+03, 0.39:5.2e+03, 0.47:4.6e+03, 0.56:3.8e+03, 0.68:1.1e+03, 0.82:79, 1.00:5.3, 1.20:1.9, 1.46:1.1, 1.76:0.76, 2.13:0.6, 2.57:0.55, 3.10:0.52, 3.75:0.52, 4.53:0.52, 5.48:0.52, 6.62:0.51, 8.00:0.51)
+  T* (P0 = 0.5, exact) = 0.405; per instance [0.405, 0.442, 0.474, 0.429]
+  T_min 0.243: M0 6, round trips 514, min acc 0.241, p0(T_min) 0.911, training median work 5.002e+04 replica-sweeps, time 0.0208 s (12/12 solved)
+  T_min 0.324: M0 6, round trips 2276, min acc 0.320, p0(T_min) 0.624, training median work 2.311e+04 replica-sweeps, time 0.0108 s (12/12 solved)
+  T_min 0.405: M0 4, round trips 3988, min acc 0.284, p0(T_min) 0.681, training median work 2.59e+04 replica-sweeps, time 0.013 s (12/12 solved)
+  T_min 0.506: M0 4, round trips 14775, min acc 0.425, p0(T_min) 0.292, training median work 5.384e+04 replica-sweeps, time 0.0212 s (12/12 solved)
+  chosen T_min = 0.324  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=4 iter 0: round trips 541, min acc 0.225, p0(Tmin) 0.547, cost/rt 591
+    M=4 iter 1: round trips 746, min acc 0.225, p0(Tmin) 0.723, cost/rt 858
+    M=4 iter 2: round trips 1143, min acc 0.278, p0(Tmin) 0.697, cost/rt 1.12e+03
+    M=4 iter 3: round trips 1530, min acc 0.232, p0(Tmin) 0.685, cost/rt 837
+    M=4 iter 4: round trips 1565, min acc 0.197, p0(Tmin) 0.751, cost/rt 818
+    M=6 iter 0: round trips 709, min acc 0.399, p0(Tmin) 0.646, cost/rt 677
+    M=6 iter 1: round trips 822, min acc 0.457, p0(Tmin) 0.803, cost/rt 1.17e+03
+    M=6 iter 2: round trips 2448, min acc 0.423, p0(Tmin) 0.683, cost/rt 784
+    M=6 iter 3: round trips 1959, min acc 0.362, p0(Tmin) 0.657, cost/rt 980
+    M=6 iter 4: round trips 2276, min acc 0.320, p0(Tmin) 0.624, cost/rt 844
+    M=8 iter 0: round trips 1038, min acc 0.542, p0(Tmin) 0.521, cost/rt 617
+    M=8 iter 1: round trips 1652, min acc 0.617, p0(Tmin) 0.576, cost/rt 775
+    M=8 iter 2: round trips 2582, min acc 0.550, p0(Tmin) 0.755, cost/rt 991
+    M=8 iter 3: round trips 2134, min acc 0.468, p0(Tmin) 0.809, cost/rt 1.2e+03
+    M=8 iter 4: round trips 2548, min acc 0.413, p0(Tmin) 0.759, cost/rt 1e+03
+    M=12 iter 0: round trips 1683, min acc 0.719, p0(Tmin) 0.225, cost/rt 570
+    M=12 iter 1: round trips 1805, min acc 0.741, p0(Tmin) 0.620, cost/rt 1.06e+03
+    M=12 iter 2: round trips 3027, min acc 0.698, p0(Tmin) 0.718, cost/rt 1.27e+03
+    M=12 iter 3: round trips 3177, min acc 0.609, p0(Tmin) 0.700, cost/rt 1.21e+03
+    M=12 iter 4: round trips 2728, min acc 0.549, p0(Tmin) 0.748, cost/rt 1.41e+03
+  chosen M = 4; temperatures 0.3239, 0.5105, 0.743, 1.759
+  swap acceptance 0.42, 0.35, 0.20
+  flow f(T)       1.00, 0.68, 0.18, 0.00
+=== factor d=15: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:0.66, 0.18:1.6e+03, 0.22:3.3e+03, 0.26:1.2e+02, 0.32:1.7e+03, 0.39:5.8e+02, 0.47:1.3e+03, 0.56:6.7e+02, 0.68:4.8e+02, 0.82:28, 1.00:5.5, 1.20:2.3, 1.46:1.1, 1.76:0.76, 2.13:0.62, 2.57:0.55, 3.10:0.53, 3.75:0.53, 4.53:0.52, 5.48:0.53, 6.62:0.51, 8.00:0.51)
+  T* (P0 = 0.5, exact) = 0.406; per instance [0.437, 0.421, 0.461, 0.406]
+  T_min 0.243: M0 6, round trips 1611, min acc 0.218, p0(T_min) 0.155, training median work 2.025e+05 replica-sweeps, time 0.0973 s (12/12 solved)
+  T_min 0.324: M0 4, round trips 2687, min acc 0.205, p0(T_min) 0.266, training median work 2.888e+05 replica-sweeps, time 0.148 s (12/12 solved)
+  T_min 0.406: M0 4, round trips 4848, min acc 0.284, p0(T_min) 0.437, training median work 1.342e+05 replica-sweeps, time 0.0678 s (12/12 solved)
+  T_min 0.507: M0 4, round trips 17432, min acc 0.458, p0(T_min) 0.144, training median work 1.095e+05 replica-sweeps, time 0.0447 s (12/12 solved)
+  chosen T_min = 0.406  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 1229, min acc 0.120, p0(Tmin) 0.179, cost/rt 195
+    M=3 iter 1: round trips 2033, min acc 0.113, p0(Tmin) 0.225, cost/rt 236
+    M=3 iter 2: round trips 2947, min acc 0.105, p0(Tmin) 0.527, cost/rt 326
+    M=3 iter 3: round trips 3704, min acc 0.154, p0(Tmin) 0.358, cost/rt 259
+    M=3 iter 4: round trips 4990, min acc 0.136, p0(Tmin) 0.177, cost/rt 192
+    M=4 iter 0: round trips 2041, min acc 0.278, p0(Tmin) 0.000, cost/rt 157
+    M=4 iter 1: round trips 3266, min acc 0.305, p0(Tmin) 0.308, cost/rt 196
+    M=4 iter 2: round trips 5293, min acc 0.276, p0(Tmin) 0.505, cost/rt 242
+    M=4 iter 3: round trips 3081, min acc 0.318, p0(Tmin) 0.735, cost/rt 415
+    M=4 iter 4: round trips 4848, min acc 0.284, p0(Tmin) 0.437, cost/rt 264
+    M=6 iter 0: round trips 2240, min acc 0.412, p0(Tmin) 0.322, cost/rt 214
+    M=6 iter 1: round trips 4912, min acc 0.504, p0(Tmin) 0.306, cost/rt 195
+    M=6 iter 2: round trips 6974, min acc 0.541, p0(Tmin) 0.570, cost/rt 275
+    M=6 iter 3: round trips 9923, min acc 0.518, p0(Tmin) 0.196, cost/rt 193
+    M=6 iter 4: round trips 8117, min acc 0.488, p0(Tmin) 0.370, cost/rt 237
+    M=8 iter 0: round trips 2660, min acc 0.593, p0(Tmin) 0.317, cost/rt 241
+    M=8 iter 1: round trips 5612, min acc 0.592, p0(Tmin) 0.308, cost/rt 228
+    M=8 iter 2: round trips 8633, min acc 0.604, p0(Tmin) 0.590, cost/rt 297
+    M=8 iter 3: round trips 9304, min acc 0.598, p0(Tmin) 0.522, cost/rt 275
+    M=8 iter 4: round trips 9063, min acc 0.606, p0(Tmin) 0.400, cost/rt 282
+  chosen M = 6; temperatures 0.4056, 0.5095, 0.6189, 0.768, 1.043, 1.759
+  swap acceptance 0.49, 0.63, 0.64, 0.58, 0.49
+  flow f(T)       1.00, 0.76, 0.51, 0.29, 0.12, 0.00
+=== factor d=16: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:2.5e+02, 0.18:4.5e+02, 0.22:8.4e+03, 0.26:0.81, 0.32:2.3e+03, 0.39:4e+03, 0.47:1e+03, 0.56:3.8e+03, 0.68:5.4e+02, 0.82:30, 1.00:10, 1.20:2.4, 1.46:1.3, 1.76:0.78, 2.13:0.63, 2.57:0.57, 3.10:0.54, 3.75:0.52, 4.53:0.52, 5.48:0.52, 6.62:0.51, 8.00:0.5)
+  T* (P0 = 0.5, exact) = 0.371; per instance [0.371, 0.382, 0.393, 0.434]
+  T_min 0.223: M0 9, round trips 619, min acc 0.299, p0(T_min) 0.414, training median work 1.185e+06 replica-sweeps, time 0.591 s (12/12 solved)
+  T_min 0.297: M0 6, round trips 1680, min acc 0.293, p0(T_min) 0.337, training median work 4.917e+05 replica-sweeps, time 0.251 s (12/12 solved)
+  T_min 0.371: M0 4, round trips 3252, min acc 0.254, p0(T_min) 0.373, training median work 2.67e+05 replica-sweeps, time 0.151 s (12/12 solved)
+  T_min 0.464: M0 4, round trips 10748, min acc 0.363, p0(T_min) 0.071, training median work 2.535e+05 replica-sweeps, time 0.139 s (12/12 solved)
+  chosen T_min = 0.371  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=3 iter 0: round trips 759, min acc 0.107, p0(Tmin) 0.000, cost/rt 316
+    M=3 iter 1: round trips 1266, min acc 0.109, p0(Tmin) 0.178, cost/rt 379
+    M=3 iter 2: round trips 2189, min acc 0.111, p0(Tmin) 0.331, cost/rt 439
+    M=3 iter 3: round trips 2766, min acc 0.120, p0(Tmin) 0.156, cost/rt 347
+    M=3 iter 4: round trips 2201, min acc 0.110, p0(Tmin) 0.270, cost/rt 436
+    M=4 iter 0: round trips 1082, min acc 0.292, p0(Tmin) 0.000, cost/rt 296
+    M=4 iter 1: round trips 1907, min acc 0.257, p0(Tmin) 0.000, cost/rt 336
+    M=4 iter 2: round trips 3774, min acc 0.284, p0(Tmin) 0.178, cost/rt 339
+    M=4 iter 3: round trips 4503, min acc 0.283, p0(Tmin) 0.118, cost/rt 284
+    M=4 iter 4: round trips 3252, min acc 0.254, p0(Tmin) 0.373, cost/rt 394
+    M=6 iter 0: round trips 1557, min acc 0.480, p0(Tmin) 0.108, cost/rt 308
+    M=6 iter 1: round trips 2632, min acc 0.468, p0(Tmin) 0.329, cost/rt 365
+    M=6 iter 2: round trips 4843, min acc 0.504, p0(Tmin) 0.351, cost/rt 396
+    M=6 iter 3: round trips 5763, min acc 0.450, p0(Tmin) 0.091, cost/rt 333
+    M=6 iter 4: round trips 4597, min acc 0.416, p0(Tmin) 0.356, cost/rt 418
+    M=8 iter 0: round trips 1719, min acc 0.557, p0(Tmin) 0.200, cost/rt 372
+    M=8 iter 1: round trips 3652, min acc 0.593, p0(Tmin) 0.168, cost/rt 350
+    M=8 iter 2: round trips 5536, min acc 0.628, p0(Tmin) 0.462, cost/rt 462
+    M=8 iter 3: round trips 5057, min acc 0.565, p0(Tmin) 0.453, cost/rt 506
+    M=8 iter 4: round trips 6357, min acc 0.512, p0(Tmin) 0.186, cost/rt 403
+  chosen M = 4; temperatures 0.3714, 0.5572, 0.8258, 1.759
+  swap acceptance 0.27, 0.37, 0.25
+  flow f(T)       1.00, 0.60, 0.17, 0.00
+=== factor d=17: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:2, 0.18:4.4e+03, 0.22:23, 0.26:1.6e+02, 0.32:4.5e+03, 0.39:4.7e+03, 0.47:5.1e+03, 0.56:1.5e+03, 0.68:1.1e+03, 0.82:1.1e+02, 1.00:7.2, 1.20:3, 1.46:1.2, 1.76:0.81, 2.13:0.65, 2.57:0.57, 3.10:0.54, 3.75:0.52, 4.53:0.52, 5.48:0.51, 6.62:0.52, 8.00:0.51)
+  T* (P0 = 0.5, exact) = 0.351; per instance [0.406, 0.369, 0.351, 0.352]
+  T_min 0.210: M0 9, round trips 629, min acc 0.260, p0(T_min) 0.086, training median work 6.18e+06 replica-sweeps, time 3.22 s (12/12 solved)
+  T_min 0.281: M0 6, round trips 913, min acc 0.250, p0(T_min) 0.357, training median work 6.522e+05 replica-sweeps, time 0.338 s (12/12 solved)
+  T_min 0.351: M0 4, round trips 1744, min acc 0.216, p0(T_min) 0.000, training median work 2.964e+06 replica-sweeps, time 1.52 s (12/12 solved)
+  T_min 0.438: M0 4, round trips 7678, min acc 0.305, p0(T_min) 0.171, training median work 8.924e+05 replica-sweeps, time 0.509 s (12/12 solved)
+  chosen T_min = 0.281  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=4 iter 0: round trips 357, min acc 0.183, p0(Tmin) 0.028, cost/rt 896
+    M=4 iter 1: round trips 524, min acc 0.221, p0(Tmin) 0.000, cost/rt 1.22e+03
+    M=4 iter 2: round trips 805, min acc 0.209, p0(Tmin) 0.000, cost/rt 1.59e+03
+    M=4 iter 3: round trips 919, min acc 0.163, p0(Tmin) 0.000, cost/rt 1.39e+03
+    M=4 iter 4: round trips 1175, min acc 0.139, p0(Tmin) 0.099, cost/rt 1.09e+03
+    M=6 iter 0: round trips 575, min acc 0.418, p0(Tmin) 0.000, cost/rt 835
+    M=6 iter 1: round trips 812, min acc 0.413, p0(Tmin) 0.203, cost/rt 1.18e+03
+    M=6 iter 2: round trips 1592, min acc 0.371, p0(Tmin) 0.000, cost/rt 1.21e+03
+    M=6 iter 3: round trips 1160, min acc 0.307, p0(Tmin) 0.236, cost/rt 1.66e+03
+    M=6 iter 4: round trips 913, min acc 0.250, p0(Tmin) 0.357, cost/rt 2.1e+03
+    M=8 iter 0: round trips 549, min acc 0.552, p0(Tmin) 0.077, cost/rt 1.17e+03
+    M=8 iter 1: round trips 882, min acc 0.585, p0(Tmin) 0.000, cost/rt 1.45e+03
+    M=8 iter 2: round trips 1421, min acc 0.462, p0(Tmin) 0.196, cost/rt 1.8e+03
+    M=8 iter 3: round trips 1269, min acc 0.377, p0(Tmin) 0.298, cost/rt 2.02e+03
+    M=8 iter 4: round trips 1917, min acc 0.319, p0(Tmin) 0.000, cost/rt 1.34e+03
+    M=12 iter 0: round trips 918, min acc 0.705, p0(Tmin) 0.148, cost/rt 1.05e+03
+    M=12 iter 1: round trips 1285, min acc 0.736, p0(Tmin) 0.042, cost/rt 1.49e+03
+    M=12 iter 2: round trips 1703, min acc 0.621, p0(Tmin) 0.184, cost/rt 2.25e+03
+    M=12 iter 3: round trips 2005, min acc 0.515, p0(Tmin) 0.224, cost/rt 1.92e+03
+    M=12 iter 4: round trips 2393, min acc 0.458, p0(Tmin) 0.133, cost/rt 1.6e+03
+  chosen M = 8; temperatures 0.2805, 0.3832, 0.4543, 0.5231, 0.604, 0.7124, 0.9088, 1.759
+  swap acceptance 0.54, 0.71, 0.75, 0.74, 0.71, 0.62, 0.32
+  flow f(T)       1.00, 0.88, 0.72, 0.55, 0.37, 0.22, 0.09, 0.00
+=== factor d=18: 4 training instances
+  T_max = 1.759  (tau_int at grid: 0.15:3.6e+02, 0.18:1.3e+03, 0.22:4.9e+03, 0.26:38, 0.32:2.9e+03, 0.39:2.9e+03, 0.47:1.1e+03, 0.56:8.6e+02, 0.68:6e+02, 0.82:56, 1.00:7.2, 1.20:3, 1.46:1.2, 1.76:0.78, 2.13:0.63, 2.57:0.56, 3.10:0.53, 3.75:0.53, 4.53:0.52, 5.48:0.51, 6.62:0.51, 8.00:0.51)
+  T* (P0 = 0.5, exact) = 0.366; per instance [0.366, 0.395, 0.378, 0.38]
+  T_min 0.219: M0 9, round trips 575, min acc 0.264, p0(T_min) 0.090, training median work 2.241e+06 replica-sweeps, time 1.19 s (12/12 solved)
+  T_min 0.293: M0 6, round trips 1238, min acc 0.283, p0(T_min) 0.181, training median work 4.02e+06 replica-sweeps, time 2.05 s (12/12 solved)
+  T_min 0.366: M0 4, round trips 3021, min acc 0.234, p0(T_min) 0.222, training median work 3.651e+06 replica-sweeps, time 2.09 s (12/12 solved)
+  T_min 0.457: M0 4, round trips 6416, min acc 0.324, p0(T_min) 0.197, training median work 1.494e+06 replica-sweeps, time 0.851 s (12/12 solved)
+  chosen T_min = 0.219  (adequacy: exact P0(T_min) >= 0.5 on every training instance)
+    M=6 iter 0: round trips 239, min acc 0.343, p0(Tmin) 0.082, cost/rt 2.01e+03
+    M=6 iter 1: round trips 400, min acc 0.388, p0(Tmin) 0.000, cost/rt 2.4e+03
+    M=6 iter 2: round trips 518, min acc 0.302, p0(Tmin) 0.198, cost/rt 3.71e+03
+    M=6 iter 3: round trips 503, min acc 0.227, p0(Tmin) 0.138, cost/rt 3.82e+03
+    M=6 iter 4: round trips 553, min acc 0.180, p0(Tmin) 0.000, cost/rt 3.47e+03
+    M=9 iter 0: round trips 217, min acc 0.325, p0(Tmin) 0.138, cost/rt 3.32e+03
+    M=9 iter 1: round trips 471, min acc 0.548, p0(Tmin) 0.000, cost/rt 3.06e+03
+    M=9 iter 2: round trips 547, min acc 0.413, p0(Tmin) 0.133, cost/rt 5.27e+03
+    M=9 iter 3: round trips 769, min acc 0.306, p0(Tmin) 0.012, cost/rt 3.75e+03
+    M=9 iter 4: round trips 575, min acc 0.264, p0(Tmin) 0.090, cost/rt 5.01e+03
+    M=13 iter 0: round trips 357, min acc 0.644, p0(Tmin) 0.115, cost/rt 2.91e+03
+    M=13 iter 1: round trips 628, min acc 0.670, p0(Tmin) 0.000, cost/rt 3.31e+03
+    M=13 iter 2: round trips 906, min acc 0.542, p0(Tmin) 0.013, cost/rt 4.59e+03
+    M=13 iter 3: round trips 588, min acc 0.432, p0(Tmin) 0.204, cost/rt 7.07e+03
+    M=13 iter 4: round trips 637, min acc 0.342, p0(Tmin) 0.212, cost/rt 6.53e+03
+    M=18 iter 0: round trips 560, min acc 0.786, p0(Tmin) 0.000, cost/rt 2.57e+03
+    M=18 iter 1: round trips 793, min acc 0.734, p0(Tmin) 0.153, cost/rt 3.63e+03
+    M=18 iter 2: round trips 1280, min acc 0.650, p0(Tmin) 0.000, cost/rt 4.5e+03
+    M=18 iter 3: round trips 1392, min acc 0.547, p0(Tmin) 0.000, cost/rt 4.14e+03
+    M=18 iter 4: round trips 1291, min acc 0.485, p0(Tmin) 0.181, cost/rt 4.46e+03
+  chosen M = 6; temperatures 0.2194, 0.3661, 0.4647, 0.5861, 0.7774, 1.759
+  swap acceptance 0.34, 0.59, 0.61, 0.53, 0.18
+  flow f(T)       1.00, 0.81, 0.51, 0.26, 0.08, 0.00

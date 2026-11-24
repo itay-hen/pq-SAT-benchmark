@@ -1,0 +1,6 @@
+[submodule "solvers/kissat"]
+	path = solvers/kissat
+	url = https://github.com/arminbiere/kissat
+[submodule "solvers/cadical"]
+	path = solvers/cadical
+	url = https://github.com/arminbiere/cadical

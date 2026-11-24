@@ -90,3 +90,18 @@ fewer spins (28 instead of 40 for 11 x 13).
 `analysis/` holds two scripts (they need `pip install python-sat`) that
 certify the ground-state degeneracy and the exact gap of an instance:
 `certify_ground_states.py 7x13 ...` and `exact_gap.py 7x13 ...`.
+
+## Repository layout (Nov 2026)
+
+| Path | Contents |
+|---|---|
+| `factorization_sat.py`, `generate_instances.py` | Instance generator (CNF and Ising), including `--gadget combined` |
+| `thorough_test.py`, `verify_factorization_cnf.py`, `analysis/` | Tests, CNF verification, ground-state and gap certification |
+| `benchmark/` | SAT benchmark driver (`sat_benchmark_single.cpp`), benchmark-set builder, Slurm job, analysis, and raw logs of the 2026-11-17 local run (Fig. 3) |
+| `dwave/` | D-Wave instance generator and the instances used in the paper |
+| `paper_support/` | Scripts and data for Fig. 1 and the old/new generator timing check |
+| `pt_study/`, `pt_tuned/` | Parallel-tempering study (sources, ladders, results) |
+| `solvers/kissat`, `solvers/cadical` | Git submodules pinned to kissat rel-4.0.4 and CaDiCaL rel-3.0.0 |
+
+Clone with `git clone --recursive`, or run `git submodule update --init` after cloning.
+Scripts in `benchmark/` and `paper_support/` import `factorization_sat`; run them with the repository root on `PYTHONPATH`.

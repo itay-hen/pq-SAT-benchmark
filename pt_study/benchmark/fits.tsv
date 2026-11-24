@@ -1,0 +1,6 @@
+method	slope_decades_per_bit	intercept	d_min	d_max
+kissat	0.268	-3.852	5	18
+pt_factor	0.546	-9.224	12	18
+pt_focused	1.038	-7.391	5	9
+pt_uniform	1.460	-8.822	5	7
+random_factor	0.604	-9.314	11	18

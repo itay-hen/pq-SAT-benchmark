@@ -1,0 +1,2 @@
+instance	num_vars	num_clauses	kissat_time	kissat_result
+factor_0009_p60811_q62927.cnf	7224	25281	4.23156	SAT F

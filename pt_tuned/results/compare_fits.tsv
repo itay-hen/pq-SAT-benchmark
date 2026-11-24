@@ -1,0 +1,6 @@
+method	slope_decades_per_bit	intercept	d_min	d_max
+kissat	0.296	-4.272	10	18
+pt_factor	0.546	-9.224	12	18
+tuned_factor	0.592	-10.002	12	18
+pt_uniform	1.460	-8.822	5	7
+tuned_cnf	1.421	-8.883	5	8

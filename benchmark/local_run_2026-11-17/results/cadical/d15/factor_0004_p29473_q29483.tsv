@@ -1,0 +1,2 @@
+instance	num_vars	num_clauses	cadical_time	cadical_result
+factor_0004_p29473_q29483.cnf	5792	20268	0.580361	SAT F
