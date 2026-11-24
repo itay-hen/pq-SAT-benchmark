@@ -11,9 +11,10 @@ Design (fixes the problems of the March 2026 run):
     a wall-time budget, each with its own result file;
   * an explicit per-solver timeout, recorded in the manifest.
 
-Usage (from this folder, with the fixed generator in ../../../pq python):
+Usage (from this folder; the generator factorization_sat.py is in the
+repository root, which is the default for --generator):
   python3 make_benchmark_set.py --dmin 10 --dmax 28 --per-d 20 --seed 2026 \
-      --timeout 144000 --generator "../../../pq python"
+      --timeout 144000
 
 Outputs:
   cnf/d<d>/factor_<k>_p<p>_q<q>.cnf          (+ _cnf_solution.txt sidecar)
@@ -70,8 +71,10 @@ def main():
     ap.add_argument("--timeout", type=int, default=144000,
                     help="per-solver timeout in seconds (default 40 h)")
     ap.add_argument("--solvers", default="kissat,cadical")
-    ap.add_argument("--generator", default="../../../pq python",
-                    help="folder containing factorization_sat.py")
+    ap.add_argument("--generator",
+                    default=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."),
+                    help="folder containing factorization_sat.py "
+                         "(default: the repository root)")
     ap.add_argument("--outdir", default=".")
     args = ap.parse_args()
 

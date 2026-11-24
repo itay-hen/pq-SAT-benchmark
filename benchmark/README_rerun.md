@@ -19,7 +19,8 @@ Prepared Nov 2026.  This replaces the March 2026 runs in `results/` and
 ## Design of the re-run
 
 * p and q are both d-bit primes (p != q), the same number of pairs at every d.
-* Instances come from the fixed generator (`../../../pq python/factorization_sat.py`).
+* Instances come from the fixed generator (`factorization_sat.py` in the repository root,
+  i.e. `../factorization_sat.py` from this folder).
 * One Slurm task per (instance, solver): the solvers no longer share a budget.
 * An explicit per-solver timeout (default 40 h) below the Slurm limit (44 h),
   so slow runs end as TIMEOUT and are recorded, not silently killed.
@@ -31,8 +32,9 @@ Prepared Nov 2026.  This replaces the March 2026 runs in `results/` and
 ## Steps
 
 1. On the cluster, in the folder that holds `sat_benchmark`, `kissat` and
-   `cadical` (e.g. `/project2/hen_48/hen/pq/cppBenchmark`), copy this folder's
-   scripts and the fixed `factorization_sat.py`.
+   `cadical`, copy the scripts in this folder (`benchmark/`) and
+   `factorization_sat.py` from the repository root (`--generator .` below
+   then finds it in the current folder).
 2. Check the solver binaries first; CaDiCaL failed in `results2/`:
 
        ./kissat --version; ./cadical --version
@@ -57,7 +59,8 @@ Prepared Nov 2026.  This replaces the March 2026 runs in `results/` and
    This writes `rerun_summary.tsv`, `rerun_fits.tsv` and
    `median_runtime_vs_bits_rerun.{pdf,png}`, and prints the solver versions seen
    in the logs.  Use those numbers and the figure in the Benchmark section of the
-   paper (paper_v17 marks the places with TODO(author)).
+   paper (Sec. 4; the manuscript marks the places to update with an
+   AUTHOR note).
 
 ## Decision (Nov 17, 2026)
 
@@ -107,8 +110,9 @@ It contains manifest.tsv, commands.txt, results/, logs/, rerun_summary.tsv,
 rerun_fits.tsv and the figure.  The CNF files are not included; rerunning
 make_benchmark_set.py with the same arguments regenerates them exactly:
 
+    cd benchmark    # generator defaults to the repository root
     python3 make_benchmark_set.py --dmin 10 --dmax 21 --per-d 12 --seed 2026 \
-        --timeout 1800 --generator .
+        --timeout 1800
 
 The cluster run described above would extend the same protocol to d of
 about 28.

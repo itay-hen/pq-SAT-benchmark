@@ -26,8 +26,8 @@ auxiliary spin.  Same problems, same unique planted solutions, fewer spins.
 These are for the gadget comparison (item 2b of the instructions).
 
 Usage:
-    python3 make_dwave_instances.py --generator "../pq python"
-    python3 make_dwave_instances.py --generator "../pq python" \
+    python3 make_dwave_instances.py
+    python3 make_dwave_instances.py \
         --gadget combined --out dwave_instances_combined
 """
 import argparse
@@ -50,8 +50,10 @@ def energy(h, J, s):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--generator", default="../pq python",
-                    help="folder containing the released factorization_sat.py")
+    ap.add_argument("--generator",
+                    default=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."),
+                    help="folder containing the released factorization_sat.py "
+                         "(default: the repository root)")
     ap.add_argument("--out", default="dwave_instances")
     ap.add_argument("--gadget", choices=("separate", "combined"), default="separate",
                     help="separate = released benchmark (default); combined = "

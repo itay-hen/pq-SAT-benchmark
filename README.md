@@ -56,7 +56,7 @@ Every variable in a column k >= n_p + n_q is forced to zero (a 1 there would mak
 
 C_out(d) = d^3 - d^2 - d
 
-contractions (for general widths, C_out = [n_p n_q (n_p + n_q) - n_p(n_p+1) - n_q(n_q+1)] / 2). The residual instances that the generator writes therefore grow as d^3; empirically they have about 1.5-1.75 d^3 free variables and 5-6 d^3 CNF clauses for d >= 10.
+contractions (for general widths, C_out = [n_p n_q (n_p + n_q) - n_p(n_p+1) - n_q(n_q+1)] / 2). The residual instances that the generator writes therefore grow as d^3; in the benchmark set of benchmark/local_run_2026-11-17 (d = 10..21, 12 pairs per d) they have 1.34-1.84 d^3 free variables and 4.70-6.43 d^3 CNF clauses, both ratios rising slowly with d (medians 1.50 d^3 and 5.26 d^3 at d = 10, 1.80 d^3 and 6.28 d^3 at d = 21).
 
 **Changes in the November 2026 release**
 
@@ -98,10 +98,10 @@ certify the ground-state degeneracy and the exact gap of an instance:
 | `factorization_sat.py`, `generate_instances.py` | Instance generator (CNF and Ising), including `--gadget combined` |
 | `thorough_test.py`, `verify_factorization_cnf.py`, `analysis/` | Tests, CNF verification, ground-state and gap certification |
 | `benchmark/` | SAT benchmark driver (`sat_benchmark_single.cpp`), benchmark-set builder, Slurm job, analysis, and raw logs of the 2026-11-17 local run (Fig. 3) |
-| `dwave/` | D-Wave instance generator and the instances used in the paper |
+| `dwave/` | D-Wave instance generator, the annealing-study instances as produced by the released generator, and `fit_hardware_counts.py` (binomial fit and TTS of per-setting success counts). The D-Wave hardware data (success and read counts, run identifiers) are not in this repository. |
 | `paper_support/` | Scripts and data for Fig. 1 and the old/new generator timing check |
 | `pt_study/`, `pt_tuned/` | Parallel-tempering study (sources, ladders, results) |
 | `solvers/kissat`, `solvers/cadical` | Git submodules pinned to kissat rel-4.0.4 and CaDiCaL rel-3.0.0 |
 
 Clone with `git clone --recursive`, or run `git submodule update --init` after cloning.
-Scripts in `benchmark/` and `paper_support/` import `factorization_sat`; run them with the repository root on `PYTHONPATH`.
+Scripts in `benchmark/` and `paper_support/` import `factorization_sat`: `benchmark/make_benchmark_set.py` and `dwave/make_dwave_instances.py` find it in the repository root by default (`--generator`), and `paper_support/fig1_data.py` reads the root from `PQ_REPO`.
